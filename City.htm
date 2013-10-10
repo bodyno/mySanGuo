@@ -1,0 +1,899 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta content="telephone=no" name="format-detection" />
+    <script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.timers-1.1.3.js"></script>
+    <script type="text/javascript" src="js/iscroll-lite.js"></script>
+    <script type="text/javascript" src="js/jquery.iphone-slide.js"></script>
+    <script type="text/javascript" src="js/jquery.iphone-slide.min.js"></script>
+    <link href="css/City.css" rel="Stylesheet" type="text/css" />
+    <link href="css/MyHero.css" rel="Stylesheet" type="text/css" />
+    <link href="css/pub.css" rel="Stylesheet" type="text/css" />       
+    <link href="css/public.css" rel="Stylesheet" type="text/css" />
+    <link href="css/School.css" rel="Stylesheet" type="text/css" />
+    <link href="css/Smithy.css" rel="Stylesheet" type="text/css" />
+    <link href="css/GrandCouncil.css" rel="Stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/public.js"></script>
+    <script type="text/javascript" src="js/CityHome.js"></script> 
+    <script type="text/javascript" src="js/Generals.js"></script> 
+    <script type="text/javascript" src="js/City.js"></script>
+    <script type="text/javascript" src="js/goods.js"></script>
+    <script type="text/javascript" src="js/skill.js"></script>
+    <script type="text/javascript" src="js/FormationDic.js"></script>
+    <script type="text/javascript" src="js/School.js"></script>
+    <script type="text/javascript" src="js/pub.js"></script>
+    <script type="text/javascript" src="js/MyHero.js"></script>
+    <script type="text/javascript" src="js/Warhouse.js"></script>
+    <script type="text/javascript" src="js/Smithy.js"></script>
+    <script type="text/javascript" src="js/GrandCouncil.js"></script>
+    <script type="text/javascript" src="js/BuZheng.js"></script>
+    <script type="text/javascript" src="js/Task.js"></script>
+    <script type="text/javascript" src="js/TaishouFu.js"></script>
+    <script type="text/javascript" src="js/Athletics.js"></script>
+    <script type="text/javascript" src="js/TaskData.js"></script>
+    <script type="text/javascript" src="js/Message.js"></script>
+    <script type="text/javascript" src="js/Campaign.js"></script>
+    <script type="text/javascript" src="js/Battle.js"></script>
+    <script type="text/javascript" src="js/ShopClass.js"></script>
+    <script type="text/javascript" src="js/NewGuide.js" charset='gb2312'></script>
+    <script type="text/javascript" src="js/KaiFu.js"></script>
+    <script type="text/javascript" src="js/FirstKill.js"></script>
+    <script type="text/javascript" src="js/Activity.js"></script>
+    <script type="text/javascript" src="js/UserClass.js"></script>
+    <script type="text/javascript">
+        var myScroll, myScroll1;
+        function loaded() {
+            myScroll = new iScroll('wrapper', { 'hScrollbar': false, 'vScrollbar': false });
+        }
+
+        function loaded1() {
+            myScroll1 = new iScroll('chatwrapper', { 'hScrollbar': false, 'vScrollbar': false, 'bounce': false });
+        }
+
+        function loadedwrapper() {
+            myScroll = new iScroll('mainwrapper', { 'bounce': false, 'vScrollbar': false, 'hScrollbar': false, "lockDirection": false });
+        }
+
+        function loadedpubwrapper() {
+            myScroll = new iScroll('pubwrapper', { 'bounce': false, 'hScrollbar': false });
+        }
+
+        var loadedmapwrapper = function () { myScroll = new iScroll('mapwrapper', { 'bounce': false, 'hScrollbar': false, 'vScrollbar': false }); }
+
+
+        //精炼加成数据
+        var RefiningData =
+        [
+             { "Qid": 1, "Odds": "100,100,100,100,100,100,100,100,100,90", "Coin": 121, "Refine": "8,2,5,10,15" },
+             { "Qid": 2, "Odds": "100,100,100,100,100,100,100,100,90,80", "Coin": 224, "Refine": "8,2,5,10,15" },
+             { "Qid": 3, "Odds": "100,100,100,100,100,100,100,100,90,80", "Coin": 224, "Refine": "8,9,10,20,9" }
+        ];
+
+        var RankJson = {
+            "data": {
+                "isResert": 1, 'nowrank': 130, 'historyrank': 50, 'rewardval': "1000,5000", "rewardstatus": 0, "RankList": [
+             { "rank": 1, "nick": "大咪咪", "lv": 55, 'icon': 2 },
+             { "rank": 2, "nick": "2咪咪", "lv": 54, 'icon': 5 },
+             { "rank": 3, "nick": "3咪咪", "lv": 53, 'icon': 1 },
+             { "rank": 4, "nick": "4咪咪", "lv": 55, 'icon': 2 },
+             { "rank": 5, "nick": "5咪咪", "lv": 54, 'icon': 5 },
+             { "rank": 6, "nick": "3咪咪", "lv": 53, 'icon': 1 },
+             { "rank": 7, "nick": "大咪咪", "lv": 55, 'icon': 2 },
+             { "rank": 8, "nick": "2咪咪", "lv": 54, 'icon': 5 },
+             { "rank": 9, "nick": "3咪咪", "lv": 53, 'icon': 1 },
+             { "rank": 10, "nick": "大咪咪", "lv": 55, 'icon': 2 },
+             { "rank": 11, "nick": "2咪咪", "lv": 54, 'icon': 5 },
+             { "rank": 12, "nick": "3咪咪", "lv": 53, 'icon': 1 },
+             { "rank": 13, "nick": "大咪咪大大", "lv": 55, 'icon': 2 },
+             { "rank": 14, "nick": "2咪咪", "lv": 54, 'icon': 5 },
+             { "rank": 15, "nick": "3咪咪", "lv": 53, 'icon': 1 },
+             { "rank": 16, "nick": "大咪咪", "lv": 55, 'icon': 2 },
+             { "rank": 17, "nick": "2咪咪", "lv": 54, 'icon': 5 },
+             { "rank": 18, "nick": "3咪咪", "lv": 53, 'icon': 1 },
+             { "rank": 19, "nick": "3咪咪", "lv": 53, 'icon': 1 },
+             { "rank": 4, "nick": "4咪咪", "lv": 55, 'icon': 2 },
+             { "rank": 5, "nick": "5咪咪", "lv": 54, 'icon': 5 },
+             { "rank": 6, "nick": "3咪咪", "lv": 53, 'icon': 1 },
+             { "rank": 7, "nick": "大咪咪", "lv": 55, 'icon': 2 },
+             { "rank": 8, "nick": "2咪咪", "lv": 54, 'icon': 5 },
+             { "rank": 9, "nick": "3咪咪", "lv": 53, 'icon': 1 },
+             { "rank": 10, "nick": "大咪咪", "lv": 55, 'icon': 2 },
+             { "rank": 11, "nick": "2咪咪", "lv": 54, 'icon': 5 },
+             { "rank": 12, "nick": "3咪咪", "lv": 53, 'icon': 1 },
+             { "rank": 13, "nick": "大咪咪", "lv": 55, 'icon': 2 },
+             { "rank": 14, "nick": "2咪咪", "lv": 54, 'icon': 5 },
+             { "rank": 15, "nick": "3咪咪", "lv": 53, 'icon': 1 },
+             { "rank": 16, "nick": "大咪咪", "lv": 55, 'dicon': 2 },
+             { "rank": 17, "nick": "2咪咪", "lv": 54, 'icon': 5 },
+             { "rank": 18, "nick": "3咪咪", "lv": 53, 'icon': 1 },
+             { "rank": 19, "nick": "3咪咪", "lv": 53, 'icon': 1 },
+             { "rank": 4, "nick": "4咪咪", "lv": 55, 'icon': 2 },
+             { "rank": 5, "nick": "5咪咪", "lv": 54, 'icon': 5 },
+             { "rank": 6, "nick": "3咪咪", "lv": 53, 'icon': 1 },
+             { "rank": 7, "nick": "大咪咪", "lv": 55, 'icon': 2 },
+             { "rank": 8, "nick": "2咪咪", "lv": 54, 'icon': 5 },
+             { "rank": 9, "nick": "3咪咪", "lv": 53, 'icon': 1 },
+             { "rank": 10, "nick": "大咪咪", "lv": 55, 'icon': 2 },
+             { "rank": 11, "nick": "2咪咪", "lv": 54, 'icon': 5 },
+             { "rank": 12, "nick": "3咪咪", "lv": 53, 'icon': 1 },
+             { "rank": 13, "nick": "大咪咪", "lv": 55, 'icon': 2 },
+             { "rank": 14, "nick": "2咪咪", "lv": 54, 'icon': 5 },
+             { "rank": 15, "nick": "3咪咪", "lv": 53, 'icon': 1 },
+             { "rank": 16, "nick": "大咪咪", "lv": 55, 'icon': 2 },
+             { "rank": 17, "nick": "2咪咪", "lv": 54, 'icon': 5 },
+             { "rank": 18, "nick": "3咪咪", "lv": 53, 'icon': 1 },
+             { "rank": 19, "nick": "3咪咪", "lv": 53, 'icon': 1 },
+             { "rank": 18, "nick": "3咪咪", "lv": 53, 'icon': 1 },
+             { "rank": 19, "nick": "3咪咪", "lv": 53, 'icon': 1 }
+                ]
+            }
+        };
+
+        var LoginJson = { "lDays": 2, "LotteryHisPos": "", "LotterItem": "", "LotterItemNum": "", "RemainingNum": 0 };
+
+        var ChongJiJson = {
+            "data": {
+                "isResert": 1, "datalist": [
+                    { "ranking": 1, "username": "宇文尔容", "lv": 35 },
+                    { "ranking": 2, "username": "大SB", "lv": 35 },
+                    { "ranking": 3, "username": "混球", "lv": 35 },
+                    { "ranking": 4, "username": "张三三", "lv": 35 },
+                    { "ranking": 5, "username": "李小四", "lv": 35 },
+                    { "ranking": 6, "username": "王大麻子", "lv": 35 },
+                    { "ranking": 7, "username": "狗剩", "lv": 35 },
+                    { "ranking": 8, "username": "狗蛋儿", "lv": 35 },
+                    { "ranking": 9, "username": "小美女", "lv": 35 },
+                    { "ranking": 10, "username": "大湿胸", "lv": 35 }
+                ], "selfRanking": 20, "timedetail": "活动时间:2月27日-3月15日<br> 2日中场奖励，15日排名奖励"
+            }
+        };
+
+        var ActivityOnlineJosn = [
+            { "ActivityID": 100, "isOnline": 1 },
+            { "ActivityID": 101, "isOnline": 1 },
+            { "ActivityID": 102, "isOnline": 0 }
+        ];
+
+        //分享数据
+        var ShareJson = {
+            "data": {
+                "NumOfPelple": 98, "datalist": [
+                    { "Reward": "银币×2000 征收令×2<br/>紫武魂包×2", "isReceive": 0, "nop": 100 }, { "Reward": "银币×4000 征收令×2<br/>紫武魂包×4", "isReceive": 0, "nop": 300 }, { "Reward": "银币×6000 征收令×3<br/>初级技能包×2", "isReceive": 0, "nop": 600 }, { "Reward": "银币×10000 征收令×4<br/>红武魂包×2", "isReceive": 0, "nop": 1000 }, { "Reward": "银币×24000 征收令×4<br/>红武魂包×4", "isReceive": 0, "nop": 1500 }, { "Reward": "银币×32000 征收令×5<br/>终级技能包×2", "isReceive": 0, "nop": 2500 },
+                    { "Reward": "银币×2000 征收令×2<br/>紫武魂包×2", "isReceive": 0, "nop": 100 }, { "Reward": "银币×4000 征收令×2<br/>紫武魂包×4", "isReceive": 0, "nop": 300 }, { "Reward": "银币×6000 征收令×3<br/>初级技能包×2", "isReceive": 0, "nop": 600 }, { "Reward": "银币×10000 征收令×4<br/>红武魂包×2", "isReceive": 0, "nop": 1000 }, { "Reward": "银币×24000 征收令×4<br/>红武魂包×4", "isReceive": 0, "nop": 1500 }, { "Reward": "银币×32000 征收令×5<br/>终级技能包×2", "isReceive": 0, "nop": 25000 }
+                ], "isResert": 1
+            }
+        };
+
+        var FirstKillJson = {
+            "data": {
+                "isResert": 1, "BossList": [
+                    { "isKill": 1, "KillUserName": "欧阳刚", "isComplete": true, "isReceive": false, "M": 20, "Silver": 50000, "KillNo": 3000 },
+                    { "isKill": 1, "KillUserName": "唐小十五", "isComplete": true, "isReceive": false, "M": 20, "Silver": 50000, "KillNo": 3000 },
+                    { "isKill": 0, "KillUserName": "", "isComplete": false, "isReceive": false, "M": 20, "Silver": 50000 },
+                    { "isKill": 0, "KillUserName": "", "isComplete": false, "isReceive": false, "M": 20, "Silver": 50000 },
+                    { "isKill": 0, "KillUserName": "", "isComplete": false, "isReceive": false, "M": 20, "Silver": 50000 },
+                    { "isKill": 0, "KillUserName": "", "isComplete": false, "isReceive": false, "M": 20, "Silver": 50000 },
+                    { "isKill": 0, "KillUserName": "", "isComplete": false, "isReceive": false, "M": 20, "Silver": 50000 },
+                    { "isKill": 0, "KillUserName": "", "isComplete": false, "isReceive": false, "M": 20, "Silver": 50000 }
+                ]
+            }
+        };
+
+        var ActivityJson = {
+            "data": {
+                "isResert": 1, "ActivityList": [
+                 { "id": 2, "Afunction": "return EnterBuliding(4100);", "isOnline": true },
+                 { "id": 4, "Afunction": "LoadZodiac();", "isOnline": true },
+                 { "id": 3, "Afunction": "return EnterBuliding(2014);", "isOnline": true },
+                 { "id": 1, "Afunction": "return EnterBuliding(7500);", "isOnline": true }
+                ]
+            }
+        };
+
+        var BossOfWoldJson =
+        {
+            "data": { "CompleteState": "0,0,0", "HpDiscount": 99, "RankList": [{ "discount": 0.850, "name": "欧欧叉叉" }, { "discount": 0.060, "name": "夺命书生" }], "SelfDis": "0.06", "SelfZK": "11万", "bossLv": 30, "giftinfo": "1.红宝石箱x3<br>2.红宝石箱x2<br>3.红宝石箱x2<br>4.紫宝石箱x5<br>5.紫宝石箱x4<br>6.紫宝石箱x3<br>7.紫宝石箱x2<br>8.紫宝石箱x2", "isLit": 1, "isResert": 1, "lastkillnick": "大咪咪", "leftkilltime": 1696 }
+        };
+
+        var ShenShouJson = {
+            "data": {
+                "isResert": 1, "list": [
+                            { "id": 1, "status": 0, "nexttime": "17:30", "lastnick": "未被击杀", "atime": "2013.2.6-2013.2.12", "detail": "麒麟，亦作“骐麟”，简称“麟”，是中国古籍中记载的一种动物，与凤、龟、龙共称为“四灵”，是神的坐骑，古人把麒麟当作仁兽﹑瑞兽。雄性称麒，雌性称麟.", "mapid": 3 },
+                            { "id": 1, "status": 0, "nexttime": "17:30", "lastnick": "未被击杀", "atime": "2013.2.6-2013.2.12", "detail": "麒麟，亦作“骐麟”，简称“麟”，是中国古籍中记载的一种动物，与凤、龟、龙共称为“四灵”，是神的坐骑，古人把麒麟当作仁兽﹑瑞兽。雄性称麒，雌性称麟.", "mapid": 3 }
+                ]
+            }
+        };
+
+        //屏幕尺寸
+        var Systemdata = { "width": 569, "height": 320, "MusicState": 1, "userid": 1058221, "isnight": 0, "utype": 102, "special": 1, "chatPrompt": 0 };
+
+        var RechargeData = { data: { "M": "50,110,230,340,560,1200", "money": "5,10,20,30,50,100", "isResert": 1 } };
+
+        //用户数据
+        var UserJson = { "FristRecharge": 0, "RewardOnlineTime": 20, "FormationId": 1001, "UExp": 4625, "MilitaryMerit": 8587, "mapid": 17, "NumOpenedStorage": 5, "ActionPs": 38, "New_HeroPos_M": 100, "MsgRewardNum": 5, "UserHand": 2, "ReTime": 0, "NewGuideIndex": -1, "HeroPos": 8, "FormationHero": "3,0,0,0,0,0,0,0,0", "UserLV": 50, "ActionPointReLave": 0, "EUExp": 18290, "Gold": 2, "UName": "东方不败", "zActionPs": 20, "Silver": 151711, "vip": 6 };
+
+        var FunBenJson =
+            {
+                "data": {
+                    "FuBenList": [
+                        { "FubenID": 8000, "InPoint": 2, "ItemStr": "6003,6550,6601,6611,7000,7006,7012,7018,7024", "LineID": 0, "NeedLv": 15, "TigerSignNum": 2, "TodayNot": 3 },
+                        { "FubenID": 8001, "InPoint": 2, "ItemStr": "6003,6550,6601,6611,7000,7006,7012,7018,7024", "LineID": 0, "NeedLv": 15, "TigerSignNum": 2, "TodayNot": 3 },
+                        { "FubenID": 8002, "InPoint": 2, "ItemStr": "6003,6550,6601,6611,7000,7006,7012,7018,7024", "LineID": 0, "NeedLv": 15, "TigerSignNum": 2, "TodayNot": 3 },
+                        { "FubenID": 8003, "InPoint": 2, "ItemStr": "6003,6550,6601,6611,7000,7006,7012,7018,7024", "LineID": 0, "NeedLv": 15, "TigerSignNum": 2, "TodayNot": 3 },
+                        { "FubenID": 8004, "InPoint": 2, "ItemStr": "6003,6550,6601,6611,7000,7006,7012,7018,7024", "LineID": 0, "NeedLv": 15, "TigerSignNum": 2, "TodayNot": 3 }
+                    ], "InFubenID": 8000, "TodayNOT": 10, "TotalNOT": 10, "isResert": 1, "ReAlive": 3, "isLottery": 0, "freenum": 2
+                }
+            };
+
+        var MainTaskData = [
+        { "Reward": "200,300,400,1000", "TaskState": 0, "TaskID": 1000, "Count": "1000,10,10,1", "IsClick": 1 },
+        { "Reward": "200,300,400,6015", "TaskState": 0, "TaskID": 2000, "Count": "220,20,20,1", "IsClick": 0 },
+        { "Reward": "200,300,400,1000", "TaskState": 0, "TaskID": 1000, "Count": "1000,10,10,1", "IsClick": 1 },
+        { "Reward": "200,300,400,6015", "TaskState": 0, "TaskID": 2000, "Count": "220,20,20,1", "IsClick": 0 },
+        { "Reward": "200,300,400,1000", "TaskState": 0, "TaskID": 1000, "Count": "1000,10,10,1", "IsClick": 1 },
+        { "Reward": "200,300,400,6015", "TaskState": 0, "TaskID": 2000, "Count": "220,20,20,1", "IsClick": 0 },
+        { "Reward": "200,300,400,1002,", "TaskState": 0, "TaskID": 2001, "Count": "330,20,30,1,1", "IsClick": 0 }
+        ];
+
+
+        //用户战役数据
+        var UserBattleJson =
+                {
+                    "data": [{
+                        "isResert": 1, "CrusadePoint": 1001, "CrusadeHero": 3, "CrusadeTime": 0, "mapdata": [
+                            {
+                                "mapid": 1, "list":
+                                  [
+                                      { "id": 1000, "type": 1, "CardVal": 2, "ComVal": 2, "ispass": true },
+                                      { "id": 1001, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": true },
+                                      { "id": 1002, "type": 1, "CardVal": 3, "ComVal": 2, "ispass": true },
+                                      { "id": 1003, "type": 1, "CardVal": 4, "ComVal": 4, "ispass": true },
+                                      { "id": 1004, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                      { "id": 8000, "type": 2, "CardVal": 5, "ComVal": 5, "ispass": false }
+                                  ]
+                            },
+                            {
+                                "mapid": 2, "list":
+                                  [
+                                      { "id": 1005, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                      { "id": 1006, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                      { "id": 1007, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                      { "id": 1008, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                      { "id": 1009, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                      { "id": 8001, "type": 2, "CardVal": 5, "ComVal": 5, "ispass": false }
+                                  ]
+                            },
+                            {
+                                "mapid": 3, "list":
+                                  [
+                                      { "id": 1005, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                      { "id": 1006, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                      { "id": 1007, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                      { "id": 1008, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                      { "id": 1009, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                      { "id": 8001, "type": 2, "CardVal": 5, "ComVal": 5, "ispass": false }
+                                  ]
+                            },
+                            {
+                                "mapid": 4, "list":
+                                  [
+                                      { "id": 1005, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                      { "id": 1006, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                      { "id": 1007, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                      { "id": 1008, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                      { "id": 1009, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                      { "id": 8001, "type": 2, "CardVal": 5, "ComVal": 5, "ispass": false }
+                                  ]
+                            },
+                            {
+                                "mapid": 5, "list":
+                                  [
+                                      { "id": 1005, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                      { "id": 1006, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                      { "id": 1007, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                      { "id": 1008, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                      { "id": 1009, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                      { "id": 8001, "type": 2, "CardVal": 5, "ComVal": 5, "ispass": false }
+                                  ]
+                            },
+                            {
+                                "mapid": 6, "list":
+                                  [
+                                      { "id": 1005, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                      { "id": 1006, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                      { "id": 1007, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                      { "id": 1008, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                      { "id": 1009, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                      { "id": 8001, "type": 2, "CardVal": 5, "ComVal": 5, "ispass": false }
+                                  ]
+                            }
+                            , {
+                                "mapid": 7, "list":
+                                [
+                                    { "id": 1005, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                    { "id": 1006, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                    { "id": 1007, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 1008, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 1009, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 8001, "type": 2, "CardVal": 5, "ComVal": 5, "ispass": false }
+                                ]
+                            }
+                            , {
+                                "mapid": 8, "list":
+                                [
+                                    { "id": 1005, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                    { "id": 1006, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                    { "id": 1007, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 1008, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 1009, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 8001, "type": 2, "CardVal": 5, "ComVal": 5, "ispass": false }
+                                ]
+                            }
+                            , {
+                                "mapid": 9, "list":
+                                [
+                                    { "id": 1005, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                    { "id": 1006, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                    { "id": 1007, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 1008, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 1009, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 8001, "type": 2, "CardVal": 5, "ComVal": 5, "ispass": false }
+                                ]
+                            }
+                            , {
+                                "mapid": 10, "list":
+                                [
+                                    { "id": 1005, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                    { "id": 1006, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                    { "id": 1007, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 1008, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 1009, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 8001, "type": 2, "CardVal": 5, "ComVal": 5, "ispass": false }
+                                ]
+                            }
+                            , {
+                                "mapid": 11, "list":
+                                [
+                                    { "id": 1005, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                    { "id": 1006, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                    { "id": 1007, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 1008, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 1009, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 8001, "type": 2, "CardVal": 5, "ComVal": 5, "ispass": false }
+                                ]
+                            }
+                            , {
+                                "mapid": 12, "list":
+                                [
+                                    { "id": 1005, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                    { "id": 1006, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                    { "id": 1007, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 1008, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 1009, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 8001, "type": 2, "CardVal": 5, "ComVal": 5, "ispass": false }
+                                ]
+                            }
+                            , {
+                                "mapid": 13, "list":
+                                [
+                                    { "id": 1005, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                    { "id": 1006, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                    { "id": 1007, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 1008, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 1009, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 8001, "type": 2, "CardVal": 5, "ComVal": 5, "ispass": false }
+                                ]
+                            }
+                            , {
+                                "mapid": 14, "list":
+                                [
+                                    { "id": 1005, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                    { "id": 1006, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                    { "id": 1007, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 1008, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                    { "id": 1009, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false }
+                                ]
+                            },
+                            {
+                                "mapid": 15, "list":
+                                  [
+                                     { "id": 1105, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                     { "id": 1106, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                     { "id": 1107, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                     { "id": 1108, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                     { "id": 1109, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false }
+                                  ]
+                            },
+                            {
+                                "mapid": 16, "list":
+                                  [
+                                     { "id": 1105, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                     { "id": 1106, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                     { "id": 1107, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                     { "id": 1108, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                     { "id": 1109, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false }
+                                  ]
+                            },
+                            {
+                                "mapid": 17, "list":
+                                  [
+                                     { "id": 1080, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                     { "id": 1081, "type": 1, "CardVal": 3, "ComVal": 3, "ispass": false },
+                                     { "id": 1082, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                     { "id": 1083, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false },
+                                     { "id": 1084, "type": 1, "CardVal": 5, "ComVal": 5, "ispass": false }
+                                  ]
+                            }
+                        ]
+                    }
+                    ]
+                };
+
+        var DeleHeroJson = {
+            "data": {
+                "HeroList": [
+                { "gID": 3, "useCount": 0, "GoodsList": "6450,6451,6452", "useVal": "3,1,1", "noUseVal": "1,0,1", "UseSVal": 5000, "noUseSVal": 3000, "isResert": 1 }
+                ]
+            }
+        }
+
+        //包裹数据
+        var WarhoushJson = {
+            "data":
+                [
+                    {
+                        "isResert": 1, "GoodsList": [
+                            { "ItemId": 7104, "refHP": 0, "defBonus": 0, "refAtk": 0, "correId": 1214, "Type": 9, "ItId": 7444, "hpBonus": 0, "iVal": 10, "NLv": 30, "Job": 1, "refDef": 0, "RefineLv": 0, "quality": 2, "gid": 0, "atkBonus": 49 },
+                            { "ItemId": 1102, "refHP": 0, "defBonus": 0, "refAtk": 0, "correId": 0, "Type": 1, "ItId": 7445, "hpBonus": 0, "iVal": 1, "NLv": 10, "Job": 2, "refDef": 0, "RefineLv": 5, "quality": 2, "gid": 3, "atkBonus": 49 }
+                        ]
+                    }
+                ]
+        };
+
+        var TemporaryJson = {
+            "data":
+                [
+                    {
+                        "GoodsList":
+                        [
+                        ], "isResert": 1
+                    }
+                ]
+        }
+
+
+        //用户城池数据
+        var usercityjson =
+            [
+                 { "id": 1000, "LV": 5, "JudgeLv": 1, "SCoins": 1000, "canup": true, "maxlv": 10 },
+                 { "id": 1001, "LV": 10, "JudgeLv": 2, "SCoins": 2000, "canup": true, "maxlv": 10 },
+                 { "id": 1002, "LV": 9, "JudgeLv": 5, "SCoins": 500, "canup": true, "maxlv": 10 },
+                 { "id": 1003, "LV": 3, "JudgeLv": 10, "SCoins": 5000, "canup": true, "maxlv": 10 },
+                 { "id": 1004, "LV": 1, "JudgeLv": 7, "SCoins": 3000, "canup": true, "maxlv": 10 },
+                 { "id": 1005, "LV": 1, "JudgeLv": 7, "SCoins": 3000, "canup": true, "maxlv": 10 }
+            ];
+
+        //系统公告
+        var BulletinData =
+             {
+                 "Activity": [
+                    { "name": "冲级比赛", "detial": "<div class='DefaultFont TitleFont'>乐闹大冲级，好礼等你拿</div><br/>活动时间:2012-12-1到2012-12-30<br />活动描述:快速冲级，萌币、银币等您来拿！<br /><br/>本次活动的详细规则与奖励请在游戏中相关界面查询！", "functionName": "EnterBuliding(7700);" },
+                    { "name": "五虎上将", "detial": "<div class='DefaultFont TitleFont'>乐闹大冲级，好礼等你拿</div><br/>活动时间:2012-12-1到2012-12-30<br />活动描述:快速冲级，拿萌币<br /><br/>本次活动解释权归欧阳sb", "functionName": "" }
+                 ],
+                 "GongGao": [
+                    { "name": "游戏客服", "detial": "<div class='DefaultFont TitleFont'>乐闹大冲级，好礼等你拿</div><br/>活动时间:2012-12-1到2012-12-30<br />活动描述:快速冲级，拿萌币<br /><br/>本次活动解释权归欧阳sb<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>aaaa<br>aaaa", "functionName": "" },
+                    { "name": "VIP系统", "detial": "<div class='DefaultFont TitleFont'>乐闹大冲级，好礼等你拿</div><br/>活动时间:2012-12-1到2012-12-30<br />活动描述:快速冲级，拿萌币<br /><br/>本次活动解释权归欧阳sb", "functionName": "" }
+                 ]
+             };
+        //"1.开服大礼包，免费领取<br />玩家进入游戏后，在消息界面领取。<br /><font style='color:#FF0000;'>红将礼品x1、大行动包x2、萌币x888</font><br /><br/>2.更多VIP福利，更多VIP特权！<br/>VIP三个等级：VIP1个月、VIP3个月、VIP半年<br/><br/>3..魏蜀吴三个国家各新增一个金将。<br/>魏国神将：刘晔    职业：谋士   专属技能：暴风雪<br />蜀国神将：关平    职业：战士   专属技能：星夜突袭<br />吴国神将：凌统    职业：射手   专属技能：连弩激射<br/><br /><div style='float:right;'>2012-8-11</div>";; //
+
+        //英雄数据
+        var HeroJson =
+            {
+                "data":
+                  [
+                      { "HeroList": [{ "Pt2": 0, "Qualification": 4, "Equipment": "0,0,0,0", "Defend": 28048, "Hp": 38305, "Hlv": 80, "talent": 1004, "SkillList": "", "Job": 1, "HeroId": 5003, "Experience": 0, "SkillLocation": "9003,1,0,0,0,0,0,0", "NextE": 431463, "stars": "0,0,0,0,0", "State2": 0, "Hert": 9003, "QualificationVal": 43, "State1": 0, "Attack": 30444, "ST2": 0, "ST1": 0, "Id": 158629 }, { "Pt2": 0, "Qualification": 4, "Equipment": "0,0,0,0", "Defend": 24530, "Hp": 30892, "Hlv": 80, "talent": 1006, "SkillList": "", "Job": 3, "HeroId": 5005, "Experience": 0, "SkillLocation": "9005,1,0,0,0,0,0,0", "NextE": 431463, "stars": "0,0,0,0,0", "State2": 0, "Hert": 9005, "QualificationVal": 43, "State1": 0, "Attack": 35612, "ST2": 0, "ST1": 0, "Id": 158631 }, { "Pt2": 0, "Qualification": 4, "Equipment": "0,0,0,0", "Defend": 24421, "Hp": 29638, "Hlv": 80, "talent": 1008, "SkillList": "", "Job": 3, "HeroId": 5006, "Experience": 0, "SkillLocation": "3027,1,0,0,0,0,0,0", "NextE": 431463, "stars": "0,0,0,0,0", "State2": 0, "Hert": 3027, "QualificationVal": 42, "State1": 0, "Attack": 35618, "ST2": 0, "ST1": 0, "Id": 158632 }, { "Pt2": 0, "Qualification": 3, "Equipment": "607250,905753,1784834,2114155", "Defend": 22091, "Hp": 31204, "Hlv": 78, "talent": 0, "SkillList": "", "Job": 3, "HeroId": 4103, "Experience": 38504, "SkillLocation": "3016,1,0,0,0,0,0,0", "NextE": 386923, "stars": "3,3,3,2,3", "State2": 0, "Hert": 3016, "QualificationVal": 32, "State1": 0, "Attack": 32354, "ST2": 0, "ST1": 0, "Id": 48179 }, { "Pt2": 0, "Qualification": 3, "Equipment": "979162,1422547,1679738,2418126", "Defend": 22914, "Hp": 29792, "Hlv": 73, "talent": 0, "SkillList": "", "Job": 3, "HeroId": 4502, "Experience": 16104, "SkillLocation": "2005,1,0,0,0,0,0,0", "NextE": 288123, "stars": "3,1,1,0,0", "State2": 0, "Hert": 2005, "QualificationVal": 32, "State1": 0, "Attack": 31683, "ST2": 0, "ST1": 0, "Id": 56167 }, { "Pt2": 0, "Qualification": 3, "Equipment": "724276,979152,2195798,720592", "Defend": 23669, "Hp": 30366, "Hlv": 72, "talent": 0, "SkillList": "", "Job": 3, "HeroId": 3009, "Experience": 225762, "SkillLocation": "3002,1,0,0,0,0,0,0", "NextE": 269143, "stars": "3,1,1,0,0", "State2": 0, "Hert": 3002, "QualificationVal": 33, "State1": 0, "Attack": 30656, "ST2": 0, "ST1": 0, "Id": 15198 }, { "Pt2": 0, "Qualification": 3, "Equipment": "1034512,871568,607248,2453985", "Defend": 25350, "Hp": 32650, "Hlv": 71, "talent": 0, "SkillList": "", "Job": 1, "HeroId": 4000, "Experience": 111217, "SkillLocation": "3009,1,0,0,0,0,0,0", "NextE": 250423, "stars": "3,2,1,0,0", "State2": 0, "Hert": 3009, "QualificationVal": 30, "State1": 0, "Attack": 26039, "ST2": 0, "ST1": 0, "Id": 27712 }, { "Pt2": 0, "Qualification": 3, "Equipment": "1034503,0,0,0", "Defend": 22774, "Hp": 27045, "Hlv": 61, "talent": 0, "SkillList": "", "Job": 2, "HeroId": 4005, "Experience": 75873, "SkillLocation": "3019,1,0,0,0,0,0,0", "NextE": 119443, "stars": "0,0,0,0,0", "State2": 0, "Hert": 3019, "QualificationVal": 32, "State1": 1, "Attack": 27463, "ST2": 0, "ST1": 0, "Id": 151100 }, { "Pt2": 0, "Qualification": 3, "Equipment": "1530394,0,0,0", "Defend": 21599, "Hp": 22928, "Hlv": 27, "talent": 0, "SkillList": "", "Job": 2, "HeroId": 4003, "Experience": 4811, "SkillLocation": "3012,1,0,0,0,0,0,0", "NextE": 8943, "stars": "0,0,0,0,0", "State2": 0, "Hert": 3012, "QualificationVal": 32, "State1": 0, "Attack": 22646, "ST2": 0, "ST1": 0, "Id": 144451 }, { "Pt2": 0, "Qualification": 3, "Equipment": "871578,0,0,0", "Defend": 21201, "Hp": 22248, "Hlv": 20, "talent": 0, "SkillList": "", "Job": 1, "HeroId": 4004, "Experience": 3849, "SkillLocation": "5060,1,0,0,0,0,0,0", "NextE": 5707, "stars": "0,0,0,0,0", "State2": 0, "Hert": 5060, "QualificationVal": 32, "State1": 0, "Attack": 22158, "ST2": 0, "ST1": 0, "Id": 149280 }, { "Pt2": 0, "Qualification": 3, "Equipment": "0,0,0,0", "Defend": 20386, "Hp": 20858, "Hlv": 9, "talent": 0, "SkillList": "", "Job": 3, "HeroId": 4001, "Experience": 626, "SkillLocation": "3010,1,0,0,0,0,0,0", "NextE": 1613, "stars": "0,0,0,0,0", "State2": 0, "Hert": 3010, "QualificationVal": 31, "State1": 0, "Attack": 21227, "ST2": 0, "ST1": 0, "Id": 157460 }], "isResert": 1 }
+                  ]
+            };
+
+        var FamousCampaignData = {
+            "data": {
+                "NOT": 10, "extrawarids": "101", "isResert": 1, "isfight": 0, "teamid": 0, "warid": 0, "datalist":
+                           {
+                               "id": 1,
+                               "CList": [
+                                    { "name": "一分队一一", "pnum": 2, "term": "无", "teamid": 101 },
+                                    { "name": "二分队", "pnum": 2, "term": "无", "teamid": 101 },
+                                    { "name": "三分队", "pnum": 2, "term": "无", "teamid": 101 },
+                                    { "name": "四分队", "pnum": 2, "term": "无", "teamid": 101 },
+                                    { "name": "五分队", "pnum": 2, "term": "无", "teamid": 101 }
+                               ]
+                           }
+            }
+        };
+
+        //军机处
+        var GrandCouncilJSon =
+            {
+                "data": [
+                    { "cnaResNum": 1, "list": [{ "State": 0, "Position": 1, "ItemId": 8111 }, { "State": 0, "Position": 2, "ItemId": 8000 }, { "State": 0, "Position": 3, "ItemId": 8004 }], "isResert": 1 }
+                ]
+            };
+
+        //培养数据
+        var CultureJson =
+            {
+                "data":
+                [
+                    {
+                        "isResert": 1, "list":
+                        [
+                            { "LaveNum": "32,1,0", "TotalNum": 42, "Gid": 3046 }, { "LaveNum": "0,0,0", "TotalNum": 24, "Gid": 3049 }
+                        ]
+                    }
+                ]
+            };
+
+        //培养字典数据
+        var CultureDicJson =
+               {
+                   "data":
+                    [
+                        {
+                            "isResert": 1, "list":
+                            [
+                                { 'Silver': '47,55,92,173', 'StrengthenFu': '1,1,2,3', 'DanOrdinary': '1,1,2,3', 'DanAdvanced': '1,1,2,3', 'AdditionData': '4,6,8,10-2,3,4,5-4,5,6,7|3,4,7,8-3,4,5,6-3,4,5,6|2,2,3,4-4,5,6,8-2,2,3,4' }
+                            ]
+                        }
+                    ]
+               };
+
+        var TradingJson = {
+            "data": {
+                "isResert": 1, "TradingCoin": "1000,3000,5000,10000,20000", "NowIndex": 2, "freecount": 1
+            }
+        };
+
+
+        //校场json
+        var schoolJson = {
+            "data": [
+                    {
+                        "Gold": 10, "lvlist": "1,2,3,4,5,6,7,8,9,10", "exlist": "30,74,119,163,208,253,298,342,387,433", "gtype": 1, "isResert": 1,
+                        "moneylist": "30,74,119,163,208,253,298,342,387,433", "MExp": "2300,2300,2300,2300,2300,2300,2300,2300,2300,2300", "MNum": "10,10,10,10,10,10,10,10,10,10",
+                        "schooldata":
+                    [
+                        { "id": 1, "state": 1, "HeroId": 3, "time": 3519 },
+                        { "id": 2, "state": 0, "HeroId": 0, "time": 0 },
+                        { "id": 3, "state": 0, "HeroId": 0, "time": 0 },
+                        { "id": 4, "state": 0, "HeroId": 0, "time": 0 },
+                        { "id": 5, "state": 0, "HeroId": 0, "time": 0 },
+                        { "id": 6, "state": 0, "HeroId": 0, "time": 0 }
+                    ]
+                    }
+            ]
+        };
+
+        //酒馆json
+        var PubJson = {
+            "data": [{
+                "cnaResNum": 0, "HeroData": [
+                            { "PubState": 0, "HeroId": 3102, "Position": 1, "QualificationVal": 34 },
+                            { "PubState": 1, "HeroId": 1004, "Position": 2, "QualificationVal": 18 },
+                            { "PubState": 0, "HeroId": 1601, "Position": 3, "QualificationVal": 5 },
+                            { "PubState": 1, "HeroId": 1004, "Position": 2, "QualificationVal": 18 },
+                            { "PubState": 0, "HeroId": 1601, "Position": 3, "QualificationVal": 5 },
+                            { "PubState": 1, "HeroId": 1004, "Position": 2, "QualificationVal": 18 },
+                            { "PubState": 0, "HeroId": 1601, "Position": 3, "QualificationVal": 5 },
+                            { "PubState": 0, "HeroId": 1133, "Position": 4, "QualificationVal": 9 }], "isResert": 1
+            }]
+        };
+
+        //酒馆json
+        var PubJsonNew = {
+            "data": [{ "GemBlue": 102, "GemPurple": 339, "GemRed": 310, "GemYellow": 31, "HeroData": [{ "gid": 1000, "isGot": 0 }, { "gid": 1001, "isGot": 0 }, { "gid": 1002, "isGot": 0 }, { "gid": 2020, "isGot": 0 }, { "gid": 2021, "isGot": 0 }, { "gid": 2022, "isGot": 0 }, { "gid": 2023, "isGot": 0 }, { "gid": 2042, "isGot": 0 }, { "gid": 2043, "isGot": 0 }, { "gid": 2029, "isGot": 0 }, { "gid": 2028, "isGot": 0 }, { "gid": 3400, "isGot": 0 }, { "gid": 3302, "isGot": 1 }, { "gid": 3401, "isGot": 0 }, { "gid": 2350, "isGot": 0 }, { "gid": 3309, "isGot": 0 }, { "gid": 4100, "isGot": 1 }, { "gid": 4101, "isGot": 0 }, { "gid": 4102, "isGot": 0 }, { "gid": 4103, "isGot": 1 }, { "gid": 4104, "isGot": 0 }, { "gid": 4105, "isGot": 0 }], "isResert": 1 }]
+        };
+
+        //神将json
+        var PubShengJiangJson = {
+            "data": [{
+                "HeroData": [
+                                { "gid": 1000, "isGot": 1 },
+                                { "gid": 1001, "isGot": 0 },
+                                { "gid": 1002, "isGot": 0 },
+                                { "gid": 2020, "isGot": 0 }
+                ], "isResert": 1
+            }]
+        };
+
+        //阵型数据
+        var FormationJson =
+             {
+                 "data": [
+                        { "list": [{ "LocalEnabled": "0,-1,-1,0,0,-1,-1,0,0", "maxLv": 10, "UpSliver": 900, "FId": 1000, "UpAchievement": 120, "UpLv": 0, "FLv": 2 }, { "LocalEnabled": "-1,0,-1,0,-1,0,0,-1,0", "maxLv": 10, "UpSliver": 0, "FId": 1001, "UpAchievement": 0, "UpLv": 2, "FLv": 0 }, { "LocalEnabled": "-1,0,0,0,-1,0,0,-1,-1", "maxLv": 10, "UpSliver": 0, "FId": 1002, "UpAchievement": 0, "UpLv": 4, "FLv": 0 }, { "LocalEnabled": "-1,0,-1,0,0,0,-1,0,-1", "maxLv": 10, "UpSliver": 0, "FId": 1003, "UpAchievement": 0, "UpLv": 6, "FLv": 0 }, { "LocalEnabled": "0,0,0,-1,0,-1,-1,0,-1", "maxLv": 10, "UpSliver": 0, "FId": 1004, "UpAchievement": 0, "UpLv": 7, "FLv": 0 }, { "LocalEnabled": "0,-1,0,0,-1,0,-1,0,-1", "maxLv": 10, "UpSliver": 0, "FId": 1005, "UpAchievement": 0, "UpLv": 8, "FLv": 0 }, { "LocalEnabled": "0,-1,0,-1,0,-1,0,-1,0", "maxLv": 10, "UpSliver": 0, "FId": 1006, "UpAchievement": 0, "UpLv": 9, "FLv": 0 }, { "LocalEnabled": "0,-1,-1,0,0,0,-1,-1,0", "maxLv": 10, "UpSliver": 0, "FId": 1007, "UpAchievement": 0, "UpLv": 10, "FLv": 0 }], "isResert": 1 }
+
+                 ]
+             };
+
+
+        //布阵数据
+        var BuZhengJson =
+             {
+                 "data": [
+                        { "isResert": 1, "list": [{ "FId": 1001, "FLv": 6, "LocalEnabled": "-1,0,-1,0,-1,0,0,-1,0", "UpAchievement": 170, "UpLv": 2, "UpSliver": 2800, "maxLv": 10 }, { "FId": 1002, "FLv": 5, "LocalEnabled": "-1,0,0,0,-1,0,0,-1,-1", "UpAchievement": 160, "UpLv": 4, "UpSliver": 3300, "maxLv": 10 }, { "FId": 1003, "FLv": 6, "LocalEnabled": "-1,0,-1,0,0,0,-1,0,-1", "UpAchievement": 170, "UpLv": 6, "UpSliver": 3800, "maxLv": 10 }, { "FId": 1000, "FLv": 5, "LocalEnabled": "0,-1,-1,0,0,-1,-1,0,0", "UpAchievement": 160, "UpLv": 0, "UpSliver": 2100, "maxLv": 10 }] }
+
+                 ]
+             };
+
+        //每日任务
+        var TaskDayJson =
+             {
+                 "data": [
+                    {
+                        "RewardInfo": "银币x2000<br>武将传记x1<br>培养符x1|银币x4000<br>武将传记x2<br>培养符x2|银币x6000<br>返还令x1<br>武将传记x3<br>培养符x3|银币x8000<br>征收令x1<br>返还令x1<br>武将传记x3",
+                        "ActivePoint": 20,
+                        "list": [{ "CompleteNum": 3, "FunctionID": 10, "PointNum": 3 },
+                        { "CompleteNum": 0, "FunctionID": 5, "PointNum": 1 },
+                         { "CompleteNum": 0, "FunctionID": 5, "PointNum": 1 },
+                          { "CompleteNum": 0, "FunctionID": 5, "PointNum": 3 },
+                           { "CompleteNum": 0, "FunctionID": 5, "PointNum": 3 },
+                           { "CompleteNum": 0, "FunctionID": 10, "PointNum": 3 },
+                           { "CompleteNum": 3, "FunctionID": 10, "PointNum": 3 },
+                            { "CompleteNum": 0, "FunctionID": 10, "PointNum": 3 },
+                             { "CompleteNum": 1, "FunctionID": 10, "PointNum": 3 },
+                             { "CompleteNum": 0, "FunctionID": 10, "PointNum": 3 },
+                             { "CompleteNum": 0, "FunctionID": 10, "PointNum": 3 },
+                             { "CompleteNum": 0, "FunctionID": 10, "PointNum": 4 }
+                        ], "RewardState": "1,0,0,0", "isResert": 1
+                    }
+                 ]
+             };
+
+        var MessageJson = {
+            "data": [
+                 {
+                     "isResert": 1, "list": [
+                     { "MessageID": 1814, "MessageType": 2, "UserHand": 0, "MessageTime": "2小时前", "Message": "高喊三声\"欧阳是sb\"有奖励哦", "Receive": 0 },
+                     { "MessageID": 1813, "MessageType": 2, "UserHand": 0, "MessageTime": "2小时前", "Message": "高喊三声欧阳是sb有奖励哦", "Receive": 0 },
+                     { "MessageID": 1754, "MessageType": 3, "UserHand": 6, "MessageTime": "2天前", "Message": "管瑞打败玩家479", "Receive": 0 },
+                     { "MessageID": 1753, "MessageType": 3, "UserHand": 6, "MessageTime": "2天前", "Message": "管瑞打败玩家475", "Receive": 0 },
+                     { "MessageID": 1752, "MessageType": 3, "UserHand": 6, "MessageTime": "2天前", "Message": "管瑞打败玩家437", "Receive": 0 },
+                     { "MessageID": 1751, "MessageType": 3, "UserHand": 6, "MessageTime": "2天前", "Message": "管瑞打败玩家395", "Receive": 0 },
+                     { "MessageID": 1749, "MessageType": 3, "UserHand": 6, "MessageTime": "2天前", "Message": "管瑞打败玩家354", "Receive": 0 },
+                     { "MessageID": 1813, "MessageType": 2, "UserHand": 0, "MessageTime": "2小时前", "Message": "高喊三声欧阳是sb有奖励哦", "Receive": 0 },
+                     { "MessageID": 1748, "MessageType": 3, "UserHand": 6, "MessageTime": "2天前", "Message": "管瑞打败玩家372", "Receive": 0 },
+                     { "MessageID": 1747, "MessageType": 3, "UserHand": 6, "MessageTime": "2天前", "Message": "管瑞打败玩家366", "Receive": 0 },
+                     { "MessageID": 1746, "MessageType": 3, "UserHand": 6, "MessageTime": "2天前", "Message": "管瑞打败玩家440", "Receive": 0 },
+                     { "MessageID": 1745, "MessageType": 3, "UserHand": 6, "MessageTime": "2天前", "Message": "管瑞打败玩家526", "Receive": 0 },
+                     { "MessageID": 1743, "MessageType": 3, "UserHand": 6, "MessageTime": "2天前", "Message": "管瑞打败玩家548", "Receive": 0 },
+                     { "MessageID": 1742, "MessageType": 3, "UserHand": 6, "MessageTime": "2天前", "Message": "管瑞打败玩家527", "Receive": 0 },
+                     { "MessageID": 1741, "MessageType": 3, "UserHand": 6, "MessageTime": "2天前", "Message": "管瑞打败玩家522", "Receive": 0 },
+                     { "MessageID": 1740, "MessageType": 3, "UserHand": 6, "MessageTime": "2天前", "Message": "管瑞打败玩家559", "Receive": 0 },
+                     { "MessageID": 1739, "MessageType": 3, "UserHand": 6, "MessageTime": "2天前", "Message": "管瑞打败玩家514", "Receive": 0 },
+                     { "MessageID": 1738, "MessageType": 3, "UserHand": 6, "MessageTime": "2天前", "Message": "管瑞打败玩家531", "Receive": 0 },
+                     { "MessageID": 1736, "MessageType": 3, "UserHand": 6, "MessageTime": "3天前", "Message": "管瑞打败玩家522", "Receive": 0 },
+                     { "MessageID": 1735, "MessageType": 3, "UserHand": 6, "MessageTime": "3天前", "Message": "管瑞打败玩家372", "Receive": 0 },
+                     { "MessageID": 1734, "MessageType": 3, "UserHand": 6, "MessageTime": "3天前", "Message": "管瑞打败玩家357", "Receive": 0 },
+                     { "MessageID": 1813, "MessageType": 2, "UserHand": 0, "MessageTime": "2小时前", "Message": "1高喊三声欧阳是sb有奖励哦", "Receive": 0 },
+                     { "MessageID": 1813, "MessageType": 2, "UserHand": 0, "MessageTime": "2小时前", "Message": "2高喊三声欧阳是sb有奖励哦", "Receive": 0 },
+                     { "MessageID": 1813, "MessageType": 2, "UserHand": 0, "MessageTime": "2小时前", "Message": "3高喊三声欧阳是sb有奖励哦", "Receive": 0 },
+                     { "MessageID": 1733, "MessageType": 3, "UserHand": 6, "MessageTime": "3天前", "Message": "管瑞打败玩家396", "Receive": 0 }, { "MessageID": 1732, "MessageType": 3, "UserHand": 6, "MessageTime": "3天前", "Message": "管瑞打败滕贞", "Receive": 0 }]
+                 }]
+        };
+
+        //太守府数据
+        var TaishouFuJson =
+             {
+                 "data": [
+                 { "Seilver": 4900, "LevyTime": 10, "QiangZhengNumLave": 14, "QiangZhengNumTotal": 16, "TodayNumTotal": 10, "isResert": 1, "TodayNumLave": 8, "ZSLNum": 1 }
+                 ]
+             };
+
+        //演武竞技数据
+        var AthleticsJson = {
+            "data": [
+                    { "BoxState": "0,1,2", "RewardInfo": "武将传记x1<br>银币x100<br>军功x10<br>小机率紫将武魂,中行动包x1<br>银币x200<br>军功x10<br>大机率紫将武魂,培养符x5<br>银币x300<br>军功x10<br>小机率红将武魂", "list": [{ "UserID": "10001186,10001217,10001297,10001302", "UserName": "玩家186,许维欣,玩家297,玩家302", "FG_ID": 1, "UserLV": "1,1,21,21", "CompleteState": "0,0,0,0", "HeadIcon": "6,2,1,1" }, { "UserID": "10001331,10001337,10001391,10001669", "UserName": "玩家331,玩家337,玩家391,tttttt", "FG_ID": 2, "UserLV": "22,22,1,1", "CompleteState": "0,0,0,0", "HeadIcon": "1,1,1,1" }, { "UserID": "10001394,10001357,10001359,10001387", "UserName": "玩家394,玩家357,玩家359,玩家387", "FG_ID": 3, "UserLV": "25,24,24,25", "CompleteState": "0,0,0,0", "HeadIcon": "1,1,1,1" }], "RefreshTime": 1000, "RefreshNum": 2, "CostGold": "10,20,30", "isResert": 1 }
+            ]
+        };
+
+        //商城数据
+        var ShopJson = {
+            "data": [{
+                "isResert": 1, "discount": 88, "list": [
+                     { "pID": 6501, "Price": 30, "SellType": 1, "Hot": true, "Val": 2 },
+                     { "pID": 6510, "Price": 30, "SellType": 1, "Hot": true, "Val": 1 },
+                     { "pID": 6511, "Price": 30, "SellType": 1, "Hot": false, "Val": 2 },
+                     { "pID": 6520, "Price": 30, "SellType": 1, "Hot": false, "Val": 1 },
+                     { "pID": 6550, "Price": 30, "SellType": 1, "Hot": true, "Val": 2 },
+                     { "pID": 6551, "Price": 30, "SellType": 1, "Hot": false, "Val": 5 },
+                     { "pID": 6552, "Price": 30, "SellType": 1, "Hot": true, "Val": 2 },
+                     { "pID": 6553, "Price": 30, "SellType": 1, "Hot": false, "Val": 2 },
+                     { "pID": 6554, "Price": 30, "SellType": 1, "Hot": true, "Val": 10 },
+                     { "pID": 1000, "Price": 30, "SellType": 1, "Hot": true, "Val": 1 },
+                     { "pID": 1001, "Price": 30, "SellType": 2, "Hot": true, "Val": 1 },
+                     { "pID": 1002, "Price": 30, "SellType": 2, "Hot": true, "Val": 1 },
+                     { "pID": 1003, "Price": 30, "SellType": 1, "Hot": false, "Val": 1 },
+                     { "pID": 1004, "Price": 30, "SellType": 1, "Hot": true, "Val": 1 },
+                     { "pID": 1005, "Price": 30, "SellType": 1, "Hot": true, "Val": 1 },
+                     { "pID": 1006, "Price": 30, "SellType": 1, "Hot": true, "Val": 1 },
+                     { "pID": 6550, "Price": 8, "SellType": 11, "Hot": false, "Val": 1 },
+                     { "pID": 6550, "Price": 80, "SellType": 11, "Hot": false, "Val": 1 },
+                     { "pID": 6631, "Price": 80, "SellType": 20, "Hot": false, "Val": 1 },
+                     { "pID": 6631, "Price": 80, "SellType": 20, "Hot": false, "Val": 1 },
+                     { "pID": 6631, "Price": 80, "SellType": 20, "Hot": false, "Val": 1 },
+                     { "pID": 6631, "Price": 80, "SellType": 20, "Hot": false, "Val": 1 },
+                     { "pID": 6631, "Price": 80, "SellType": 20, "Hot": false, "Val": 1 },
+                     { "pID": 6631, "Price": 80, "SellType": 20, "Hot": false, "Val": 1 }
+                ]
+            }]
+        };
+
+        //累充数据
+        var CumulationRechargeJson = {
+            "data": {
+                "isResert": 1, "datalist": [
+                        { "nop": 50, "reward": "100,200,1000,1001,1002", "rewardNum": "3000,0,2,5,10", "isReceive": true, "detail": "累计充值满50元，即可获得1级紫色装备全套装备(寒铁刀、弓、扇、盔、锁甲)、银币10万" },
+                        { "nop": 100, "reward": "100,200,1000,1001,1002", "rewardNum": "3000,10,2,5,10", "isReceive": false, "detail": "累计充值满100元，即可获得1级紫色装备全套装备(寒铁刀、弓、扇、盔、锁甲)、银币10万" },
+                        { "nop": 200, "reward": "100,200,1000,1001,1002", "rewardNum": "3000,20,2,5,10", "isReceive": false, "detail": "累计充值满200元，即可获得1级紫色装备全套装备(寒铁刀、弓、扇、盔、锁甲)、银币10万" },
+                        { "nop": 500, "reward": "100,200,1000,1001,1002", "rewardNum": "3000,30,2,5,10", "isReceive": false, "detail": "累计充值满500元，即可获得1级紫色装备全套装备(寒铁刀、弓、扇、盔、锁甲)、银币10万" },
+                        { "nop": 1000, "reward": "100,200,1000,1001,1002", "rewardNum": "3000,30,2,5,10", "isReceive": false, "detail": "累计充值满1000元，即可获得1级紫色装备全套装备(寒铁刀、弓、扇、盔、锁甲)、银币10万" },
+                        { "nop": 2500, "reward": "100,200,1000,1001,1002", "rewardNum": "3000,30,2,5,10", "isReceive": false, "detail": "累计充值满1500元，即可获得1级紫色装备全套装备(寒铁刀、弓、扇、盔、锁甲)、银币10万" },
+                        { "nop": 5000, "reward": "100,200,1000,1001,1002", "rewardNum": "3000,30,2,5,10", "isReceive": false, "detail": "累计充值满2500元，即可获得1级紫色装备全套装备(寒铁刀、弓、扇、盔、锁甲)、银币10万" }
+                ], "totalNum": 150
+            }
+        };
+
+        //祭拜数据
+        var WorshipJson =
+             {
+                 "data": { "GemYellow": 0, "SwapCount": "1,2,3,4", "isResert": 1, "type": 2, "leftseconds": 3 }
+             };
+
+        var ShengJiangJson =
+        {
+            "data": {
+                "isResert": 1, "leftseconds": 3, "groupid": 3, "GeneralsList": [
+                { "gID": 1000, "OldGem": 1200, "NowGem": 800, "QVal": 28, "isOwn": 1 },
+                { "gID": 2000, "OldGem": 1200, "NowGem": 900, "QVal": 29, "isOwn": 0 },
+                { "gID": 3000, "OldGem": 1200, "NowGem": 850, "QVal": 27, "isOwn": 0 }
+                ]
+            }
+        };
+
+        var MineJson =
+        {
+            "data": {
+                "pageindex": 1, "lvmin": 15, "lvmax": 39, "selfmineid": 112, "MineList": [
+                       { "id": 111, "uid": 0, "nick": "", "gemtype": 1 },
+                       { "id": 112, "uid": 1058222, "nick": "大咪咪", "gemtype": 1 },
+                       { "id": 113, "uid": 1058221, "nick": "2咪咪", "gemtype": 2 },
+                       { "id": 114, "uid": 1058222, "nick": "3咪咪", "gemtype": 0 },
+                       { "id": 115, "uid": 1058222, "nick": "4咪咪", "gemtype": 0 },
+                       { "id": 116, "uid": 1058222, "nick": "5咪咪", "gemtype": 0 },
+                       { "id": 117, "uid": 1058222, "nick": "6咪咪", "gemtype": 0 },
+                       { "id": 118, "uid": 1058222, "nick": "8咪咪", "gemtype": 0 },
+                       { "id": 119, "uid": 1058222, "nick": "9咪咪", "gemtype": 0 }
+                ]
+            }
+        };
+
+        var TacticsJson = {
+            "data": {
+                "isResert": 1, "upcoin": 2500, "upjungong": 300, "datalist":
+               [
+                   { "id": 100, "lv": 0, "detail": "每级提升战士25点生命", "name": "战士-体魄" },
+                   { "id": 101, "lv": 0, "detail": "每级提升战士25点生命", "name": "战士-刀枪" },
+                   { "id": 102, "lv": 0, "detail": "每级提升战士25点生命", "name": "战士-盾甲" },
+                   { "id": 200, "lv": 0, "detail": "每级提升战士25点生命", "name": "射手-体魄" },
+                   { "id": 201, "lv": 0, "detail": "每级提升战士25点生命", "name": "射手-刀枪" },
+                   { "id": 202, "lv": 0, "detail": "每级提升战士25点生命", "name": "射手-盾甲" },
+                   { "id": 300, "lv": 0, "detail": "每级提升战士25点生命", "name": "谋士-体魄" },
+                   { "id": 301, "lv": 0, "detail": "每级提升战士25点生命", "name": "谋士-刀枪" },
+                   { "id": 302, "lv": 0, "detail": "每级提升战士25点生命", "name": "谋士-盾甲" }
+               ]
+            }
+        };
+
+        var VipJson = {
+            "data": {
+                "isResert": 1, "upmoney": 100, "giftstatus": 1, "viplist": [
+                   { "viplv": 1, "money": 50, "detail": "1.每日礼包:50萌币、70W银币、会员行动包2个、紫宝石箱20个、红宝石箱10个|2.著名战役+|3.武将位+3|4.训练位+3|5.副本抽奖几率翻倍|6.商城萌币商品打8折" },
+                   { "viplv": 2, "money": 100, "detail": "1.每日礼包:50萌币、70W银币、会员行动包2个、紫宝石箱20个、红宝石箱10个|2.著名战役+|3.武将位+3|4.训练位+3|5.副本抽奖几率翻倍|6.商城萌币商品打8折" },
+                   { "viplv": 3, "money": 300, "detail": "1.每日礼包:50萌币、70W银币、会员行动包2个、紫宝石箱20个、红宝石箱10个|2.著名战役+|3.武将位+3|4.训练位+3|5.副本抽奖几率翻倍|6.商城萌币商品打8折" },
+                   { "viplv": 4, "money": 500, "detail": "1.每日礼包:50萌币、70W银币、会员行动包2个、紫宝石箱20个、红宝石箱10个|2.著名战役+|3.武将位+3|4.训练位+3|5.副本抽奖几率翻倍|6.商城萌币商品打8折" },
+                   { "viplv": 5, "money": 1000, "detail": "1.每日礼包:50萌币、70W银币、会员行动包2个、紫宝石箱20个、红宝石箱10个|2.著名战役+|3.武将位+3|4.训练位+3|5.副本抽奖几率翻倍|6.商城萌币商品打8折" }
+                ]
+            }
+        };
+    </script>
+</head>
+<body>
+    <div id='mainwrapper'>
+        <div id="mainscroller">
+            <ul>
+                <li> 
+                    <div id='mainbg'>
+                        <div class="Buliding" style="width: 90px; height: 77px; top: 196px; left: 81px;" ontouchmove="getmovingposx()" ontouchstart="getposx()" ontouchend='if (Math.abs(lastPosX - beforePosX) < 5) return EnterBuliding(1007);'>
+                            <div class='divtext2' style='left: 25px; top: 50px;'>
+                                <div class='BulidName' style='background-position: 0 -90px;'></div>
+                            </div>
+                        </div>
+                        <img src='res/city/Vivid21.gif' style='position: absolute; z-index: 7; top: 160px; left: 73px;' alt="" />
+                        <img src='res/city/Vivid1.gif' style='position: absolute; z-index: 7; top: 232px; left: 468px;' alt="" />
+                        <img src='res/city/Vivid2.gif' style='position: absolute; z-index: 7; top: 236px; left: 498px;' alt="" />
+                        <img src='res/city/Vivid3.gif' style='position: absolute; z-index: 7; top: 180px; left: 192px;' alt="" />
+                        <img src='res/city/Vivid5.gif' style='position: absolute; z-index: 7; top: 172px; left: 338px;' alt="" />
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id='main' style='display:block; position:absolute;z-index:2;border:0 solid; '>
+        <div id="UserData" style='position:absolute;z-index:10;'>
+            <div id="UserMune">
+                <div style="position:absolute;width:128px;height:61px;" onclick="return EnterBuliding(1800);">
+                    <div id='UserHand'><div id='UserHandBg'></div><div id='VipLv'></div></div>
+                    <div id='UserLVBG'onclick='javascript:void(0)'><img src='res/city/ExpIcon.png' style='position:absolute;top:-2px;' alt='' /></div>
+                    <div id='UserLV'></div><div id='UserExp'></div><div id='UserName'></div>
+                </div>
+                <div id="Mobility" class='PropertyBox' style='left:155px;'></div>
+                <div id="jungong" class='PropertyBox' style='left:237px;'></div>
+                <div id="Money" class='PropertyBox' onclick='javascript:void(0);' style='left:321px;width:54px;'></div>
+                <div id="Gold" class='PropertyBox'  onclick='javascript:void(0);' style='left:403px;width:54px;'></div>
+                <div style='left:136px;' class='otherIconBut notice'><a onclick='javascript:return EnterBuliding(8000);' href='javascript:void(0);'></a></div>                
+                <div class="otherIconBut Task" style="left:182px;" id='Task'><a href='javascript:void(0);' onclick='return EnterBuliding(6000);'></a></div>
+                <div class="otherIconBut RewardOnline" style="left:224px;" id="RewardOnline"><a href='javascript:void(0);' ></a><div id='OnlineTime'></div></div>
+                <div class="otherIconBut FenXiang" style="left:268px;" id="Div1"><a href='javascript:void(0);'  onclick='javascript:return EnterBuliding(7800);'></a></div>                
+                <div id='showother' style="position:absolute;left:312px; width:auto; height:48px;">
+                    <div class="otherIconBut LeiJi" style="" id='leijiIcon'><a href='javascript:void(0);' onclick='javascript:return EnterBuliding(7900);'></a></div>
+                    <div class="otherIconBut ChongJi" style="left:44px;" id='ChongJiIcon'><a href='javascript:void(0);' onclick='javascript:return EnterBuliding(7700);'></a></div>
+                    <div class="otherIconBut ShouChong" style="left:88px;" id='ShouChongIcon'><a href='javascript:void(0);' onclick='javascript:return EnterBuliding(8800);'></a></div>
+                </div>
+            </div>
+        </div>        
+        <div id="ButtonMune">
+            <div class="MuneItem" id="Campaign" style="left:46px;"><a href='javascript:void(0);' ontouchmove="getmovingposx()" ontouchstart="getposx()" ontouchend='if (Math.abs(lastPosX - beforePosX) < 5) return EnterBuliding(9000);' onclick='return EnterBuliding(2011);'></a></div>
+            <div class="MuneItem" id="MyHeroItem" style='left:96px;'><a href='javascript:void(0);' ontouchmove="getmovingposx()" ontouchstart="getposx()" ontouchend='if (Math.abs(lastPosX - beforePosX) < 5) return EnterBuliding(2000);' onclick='return EnterBuliding(2000);'></a></div>
+            <div class="MuneItem" id="FormationIcon" style="left:146px;"><a href='javascript:void(0);' ontouchmove="getmovingposx()" ontouchstart="getposx()" ontouchend='if (Math.abs(lastPosX - beforePosX) < 5) return EnterBuliding(4000);' onclick='return EnterBuliding(4000);'></a></div>            
+            <div class="MuneItem" id="SchoolIcon" style="left:196px;"><a href='javascript:void(0);' ontouchmove="getmovingposx()" ontouchstart="getposx()" ontouchend='if (Math.abs(lastPosX - beforePosX) < 5) return EnterBuliding(1003);' onclick='EnterBuliding(1003);'></a></div>
+            <div class="MuneItem" id="Strengthen" style="left:246px;"><a href='javascript:void(0);'  ontouchmove="getmovingposx()" ontouchstart="getposx()" ontouchend='if (Math.abs(lastPosX - beforePosX) < 5)return EnterBuliding(1004);' onclick='EnterBuliding(1004);'></a></div>
+            <div class="MuneItem" id="WHItem" style="left:296px;"><a href='javascript:void(0);' ontouchmove="getmovingposx()" ontouchstart="getposx()" ontouchend='if (Math.abs(lastPosX - beforePosX) < 5) return EnterBuliding(3000);'  onclick='EnterBuliding(3000);'></a></div>            
+            <div class="MuneItem" id="ShopsIcon" style="left:346px;"><a href='javascript:void(0);' ontouchmove="getmovingposx()" ontouchstart="getposx()" ontouchend='if (Math.abs(lastPosX - beforePosX) < 5) return EnterBuliding(8500);' onclick='EnterBuliding(8500);'></a></div>
+            <div class="MuneItem" id="siteIcon" style="left:396px;"><a href='javascript:void(0);' ontouchmove="getmovingposx()" ontouchstart="getposx()" onclick='if (Math.abs(lastPosX - beforePosX) < 5) return EnterBuliding(5500);'></a></div>         
+        </div>        
+        <div id='JobMune'>
+            <div class="MuneItem" id="DuoBao" style="top:70px;"><div class='DefaultFont' style='width:55px;left:-50px;text-align:right;font-size:12px;top:10px;color:White; -webkit-text-shadow:-1px -1px 0 #000,1px -1px #000,1px 1px #000,-1px 1px #000;-moz-text-shadow:-1px -1px 0 #000,1px -1px #000,1px 1px #000,-1px 1px #000;text-shadow:-1px -1px 0 #000,1px -1px #000,1px 1px #000,-1px 1px #000;'><font id='actimename'>世界Boss</font><br /><font id='actime'>10:00:00</font></div><a href='javascript:void(0);' ontouchmove="getmovingposx()" ontouchstart="getposx()" ontouchend='if (Math.abs(lastPosX - beforePosX) < 5) return EnterBuliding(7600);' onclick=' return EnterBuliding(7600);'></a></div>              
+            <div class="MuneItem" style="top:117px;" id="JiBai"><a href='javascript:void(0);' ontouchmove="getmovingposx()" ontouchstart="getposx()" ontouchend='if (Math.abs(lastPosX - beforePosX) < 5) return EnterBuliding(5200);' onclick='return EnterBuliding(5200);'></a></div>
+            <div class="MuneItem" style="top:164px;" id="ShenJiang"><a href='javascript:void(0);' ontouchmove="getmovingposx()" ontouchstart="getposx()" ontouchend='if (Math.abs(lastPosX - beforePosX) < 5) return EnterBuliding(5300);' onclick='return EnterBuliding(5300);'></a></div>
+            <div class="MuneItem" style="top:211px;" id="_51btn"><a href='javascript:void(0);' ontouchmove="getmovingposx()" ontouchstart="getposx()" ontouchend='if (Math.abs(lastPosX - beforePosX) < 5) return EnterBuliding(5300);' onclick='return EnterBuliding(51);'></a></div>
+        </div>
+        <table style='position:absolute;top:180px;' id='noticetable'>
+            <tr>
+                <td style='width:100%;' align="center">
+                    <div style="width:52px;background:#ff0000;" id='noticebox'>
+                        <div style='width:52px;height:52px; background:url(res/city/Notice_Mine.png) no-repeat;display:none; float:left;' id='MineNotice' onclick="LookMineNotice();"></div>
+                        <div style='width:52px;height:52px; background:url(res/city/Notice_Mine.png) no-repeat;display:none; float:left;' id='Div2'></div> 
+                    </div>                   
+                </td>
+            </tr>
+        </table>
+        <div class='TaskIcon' id='TaskIconBtn' style='top:80px;' onclick=''><a href='javascript:void(0);' onclick="return EnterBuliding(5231);"></a></div>
+        <div class='TaskIcon' id='RankIconBtn' style='top:130px;' onclick=''><a href='javascript:void(0);' onclick="return EnterBuliding(5232);"></a></div>
+        <div id="MessageIcon" class='TaskIcon'><a href='javascript:void(0);' id='MessageBtn' ontouchmove="getmovingposx()" ontouchstart="getposx()" ontouchend='if (Math.abs(lastPosX - beforePosX) < 5) return EnterBuliding(7000);'></a></div>        
+    </div>
+    <div id='other' style="position:absolute;z-index:3;"></div>
+    <div id='other2' style='position:absolute;z-index:4;'>
+        <div style="position:absolute;z-index:10000; background:url(res/dialog/InfoBg.png) no-repeat;width:347px;height:28px;overflow:hidden;top:5px;" id='messtitle'> 
+            <div style='overflow:hidden;position:absolute;z-index:400;left:30px;width:287px;height:28px;'><div id='titletext' style='font-size:14px; font-family:微软雅黑; font-weight:500;height:auto; line-height:27px; width:287px; color:White; position:absolute; overflow:hidden;text-align:center;'></div></div>         
+        </div>
+        <div id="ChatIcon" class='TaskIcon'><a href='javascript:void(0);' ontouchmove="getmovingposx()" ontouchstart="getposx()" ontouchend='if (Math.abs(lastPosX - beforePosX) < 5) loadChat();'></a></div>
+        <div id='chatdivsmall' style='display:none;' ontouchmove="getmovingposx()" ontouchstart="getposx()" ontouchend='if (Math.abs(lastPosX - beforePosX) < 5) loadChat();'>
+            <div style="top:5px;" id="chatdiv1"></div>
+            <div style="top:25px;" id="chatdiv2"></div>                    
+        </div>
+    </div>    
+</body>
+</html>

@@ -1,0 +1,1714 @@
+﻿body 
+{
+	padding:0px;
+	margin:0 auto;
+	font-family:微软雅黑;	
+	-webkit-user-select:none;
+    -webkit-text-size-adjust:none;  
+    background:#000;  
+}
+
+*{-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
+
+body img{border:0px;}
+
+body a{border:0px;}
+
+body,ul,li {
+	padding:0;
+	margin:0;
+	border:0;
+}
+
+#mainbg
+{
+    background:url(../res/city/city1.png) no-repeat;
+    height:320px;
+    width:569px;        
+}
+
+
+/*遮罩层*/
+.mask{height:100%; width:100%; position:fixed; _position:absolute; top:0; z-index:600; }
+
+.opacity{ opacity:0.3; filter: alpha(opacity=30); background-color:#000; } 
+
+/*遮罩层*/
+.mask1{height:100%; width:100%; position:fixed; _position:absolute; top:0; z-index:8400; }
+
+.opacity1{ opacity:0.3; filter: alpha(opacity=30); background-color:#000; } 
+
+/*遮罩层*/
+.mask2{height:100%; width:100%; position:fixed; _position:absolute; top:0; z-index:20; }
+
+.opacity2{ opacity:0.0; filter: alpha(opacity=0); background-color:#ff0000; } 
+
+/*遮罩层*/
+.mask3{height:100%; width:100%; position:fixed; _position:absolute; top:0; z-index:600; }
+
+.opacity3{ opacity:0.0; filter: alpha(opacity=0); background-color:#000; } 
+
+a:link { text-decoration: none;}
+a:active { text-decoration:blink}
+a:hover { text-decoration:underline;}
+a:visited { text-decoration: none;}
+
+#ButtonMune
+{
+	width:440px;
+	height:20px;
+	position:absolute;
+	z-index:40;
+	top:300px;
+}
+
+.divtext1
+{
+	width:69px;
+	height:33px;
+	position:absolute;
+	z-index:5;
+	top:248px;
+	background:url(../res/city/TxT_City.png) no-repeat;
+}
+
+.divtext2
+{
+	position:absolute;
+	z-index:5;
+}
+
+.BulidName
+{
+	width:38px;
+	height:15px;
+	position:absolute;
+	z-index:5;
+	background:url(../res/city/CityName.png) no-repeat;	
+}
+
+.BulidLV
+{
+	width:26px;
+	height:15px;
+	position:absolute;
+	z-index:5;
+	background:url(../res/city/CityLv.png) no-repeat;	
+	left:40px;
+}
+
+/*按钮样式*/
+.MuneItem
+{	
+	position:absolute;	
+	z-index:15;
+	bottom:0px;
+	width:44px;
+	height:48px;	
+}
+/*武将按钮*/
+#MyHeroItem a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/city/uibnt.png) no-repeat;
+	background-position:0 -48px;
+	display:block;	
+}
+#MyHeroItem a:hover
+{
+	background-position:-44px -48px;
+}
+
+/*包裹按钮*/
+#WHItem a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/city/uibnt.png) no-repeat;
+	background-position:0 -240px;
+	display:block;	
+}
+#WHItem a:hover
+{
+	background-position:-44px -240px;
+}
+
+/*征战按钮*/
+#Campaign a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/city/uibnt.png) no-repeat;
+	display:block;	
+}
+#Campaign a:hover
+{
+	background-position:-44px 0;
+}
+
+/*布阵按钮*/
+#FormationIcon a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/city/uibnt.png) no-repeat;
+	display:block;
+	background-position:0 -96px;
+}
+#FormationIcon a:hover
+{
+	background-position:-44px -96px;
+}
+
+/*布阵按钮*/
+#FormationIcon1 a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/city/uibnt.png) no-repeat;
+	display:block;
+	background-position:0 -96px;
+}
+#FormationIcon1 a:hover
+{
+	background-position:-44px -96px;
+}
+
+
+#JobMune
+{
+	width:44px;
+	height:320px;
+	position:absolute;
+	z-index:5;
+}
+
+/*决战按钮*/
+#DecisiveBattle a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/city/uibnt.png) no-repeat;	
+	display:block;
+	background-position:0 -384px;
+}
+#DecisiveBattle a:hover
+{
+	background-position:-44px -384px;
+}
+
+/*祭拜按钮*/
+#JiBai a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/activity/Worship/WorshipIcon.png) no-repeat;	
+	display:block;	
+}
+#JiBai a:hover
+{
+	background-position:-44px 0;
+}
+
+/*神将按钮*/
+#ShenJiang a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/activity/Worship/WorshipIcon.png) no-repeat;	
+	display:block;
+	background-position:0 -48px;
+}
+#ShenJiang a:hover
+{
+	background-position:-44px -48px;
+}
+
+/*训练按钮*/
+#SchoolIcon a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/city/uibnt.png) no-repeat;
+	display:block;
+	background-position:0 -144px;
+}
+#SchoolIcon a:hover
+{
+	background-position:-44px -144px;
+}
+
+/*强化按钮*/
+#Strengthen a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/city/uibnt.png) no-repeat;
+	display:block;
+	background-position:0 -192px;
+}
+#Strengthen a:hover
+{
+	background-position:-44px -192px;
+}
+
+/*消息按钮*/
+#MessageIcon a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/city/uibnt.png) no-repeat;
+	display:block;
+	background-position:0 -480px;
+	position:absolute;
+	z-index:15;	
+	border:0px solid;
+	top:180px;
+} 
+
+#MessageIcon a:hover
+{
+	background-position:-44px -480px;
+	border:0px solid;
+}
+
+#MessageIcon a div
+{
+   border:0px solid; 
+}
+
+#ChatIcon a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/city/uibnt.png) no-repeat;
+	display:block;
+	background-position:0 -528px;
+	position:absolute;
+	z-index:15;	
+	border:0px solid;
+	top:272px;
+} 
+
+#ChatIcon a:hover
+{
+	background-position:-44px -528px;
+	border:0px solid;
+}
+
+#ChatIcon a div
+{
+   border:0px solid; 
+}
+
+
+/*设置按钮*/
+#siteIcon a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/city/uibnt.png) no-repeat;
+	display:block;
+	background-position:0 -336px;
+}
+#siteIcon a:hover
+{
+	background-position:-44px -336px;
+}
+
+/*商城按钮*/
+#ShopsIcon a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/city/uibnt.png) no-repeat;
+	display:block;
+	background-position:0 -288px;
+}
+#ShopsIcon a:hover
+{
+	background-position:-44px -288px;
+}
+
+/*夺宝按钮*/
+#DuoBao a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/city/uibnt.png) no-repeat;
+	display:block;
+	background-position:0 -432px;
+}
+#DuoBao a:hover
+{
+	background-position:-44px -432px;
+}
+
+/*点击建筑物后的小窗*/
+#CityDialog
+{
+	width:326px;
+	height:184px;
+	position:absolute;
+	z-index:6001;
+	top:68px;
+	background:url(../res/dialog/MainCityBg.png) no-repeat;
+}
+
+/*中等大小按钮*/
+.ButtonOther
+{
+	width:90px;
+	height:40px;
+	position:absolute;
+	z-index:10;	
+}
+
+#FormationName
+{
+	width:26px;
+	height:72px;
+	position:absolute;
+	z-index:1;
+	top:66px;
+	left:10px;
+	background:url(../res/dialog/EmTXT.png) no-repeat;
+}
+
+#FormationBig
+{
+	width:165px;
+	height:168px;
+	position:absolute;
+	z-index:1;
+	top:17px;
+	left:47px;	
+}
+
+.FormationLocalInfo
+{
+	width:70px;
+	position:absolute;
+	z-index:1px;
+	height:43px;
+	color:#5D2F19;
+	font-size:11px;
+	font-weight:800;	
+	font-family:微软雅黑;	
+	left:252px;
+	line-height:14px;
+}
+
+
+/*****************************************每日任务**********************************/
+#TaskDayInfoDialog
+{
+	width:338px;
+	height:235px;
+	position:absolute;
+	z-index:12;
+	top:48px;
+	left:16px;
+	background:url(../res/dialog/Daily_Lbg.png) no-repeat;
+}
+
+#TaskRight
+{
+	width:111px;
+	height:235px;
+	position:absolute;
+	z-index:12;
+	top:48px;
+	left:357px;
+	background:url(../res/dialog/Daily_Rbg.png) no-repeat;
+}
+
+/*每项任务的按钮*/
+.TaskBox
+{
+	width:88px;
+	height:28px;
+	position:absolute;
+	z-index:12;	
+}
+
+.TaskNum
+{
+	width:50px;
+	position:absolute;
+	z-index:1px;
+	height:14px;
+	color:#5D2F19;
+	font-size:14px;
+	font-weight:600;	
+	font-family:微软雅黑;
+}
+
+/*宝箱*/
+.Chest
+{
+	width:46px;
+	height:46px;
+	position:absolute;
+	z-index:12;	
+	background:url(../res/dialog/Daily_Chest.png) no-repeat;
+}
+
+.BubbleData
+{
+	position:absolute;	
+	z-index:30;
+	width:97px;	
+}
+
+#BubbleDataUp
+{
+	position:relative;
+	height:7px;
+	width:97px;
+	background:url(../res/dialog/Daily_Frame.png) no-repeat;
+}
+
+#BubbleDataCenter
+{
+	width:97px;
+	background:url(../res/dialog/Daily_Frame.png) repeat-y;	
+	background-position:0 -7px;
+	padding-left:2px;
+	font-size:12px;
+	color:#5D2F19;
+	font-family:微软雅黑;
+	line-height:15px;
+	font-weight:800;
+}
+
+#BubbleDataDown
+{
+	position:relative;
+	width:97px;
+	background:url(../res/dialog/Daily_Frame.png) no-repeat;
+	height:7px;
+	background-position:0 -140px;
+}
+
+#Arrow
+{
+	width:11px;
+	height:14px;
+	position:absolute;
+	z-index:12;	
+	left:93px;
+	background:url(../res/dialog/Daily_Frame_js.png) no-repeat;
+}
+
+#OnlineTime
+{
+	width:44px;
+	height:16px;
+	position:absolute;
+	z-index:12;	
+	right:0px;
+	top:17px;
+	font-size:11px;
+	text-align:center;
+	color:White;
+	font-family:微软雅黑;
+	font-weight:500;
+	background:url(../res/city/Time_Layer.png) no-repeat;
+}
+
+.PromptImage
+{
+	width:36px;
+	height:36px;
+	position:absolute;
+	z-index:12;	
+	left:10px;
+	top:-5px;	
+}
+
+#TaishouFuBg
+{
+	width:452px;
+	height:235px;
+	position:absolute;
+	z-index:1;	
+	left:16px;
+	top:48px;
+	background:url(../res/dialog/Viceregal_bg.png) no-repeat;
+}
+
+#AthleticsBg
+{
+	width:452px;
+	height:235px;
+	position:absolute;
+	z-index:1;	
+	left:16px;
+	top:48px;
+	background:url(../res/dialog/Athletics_bg.png) no-repeat;
+}
+
+.GiftBox
+{
+	width:54px;
+	height:54px;
+	position:absolute;
+	z-index:11;	
+	background:url(../res/dialog/Athletics_Giftbox.png) no-repeat;
+}
+
+.UserHandBg
+{
+	width:56px;
+	height:56px;
+	position:absolute;
+	z-index:1;	
+	background:url(../res/dialog/AthHead_bg.png) no-repeat;
+}
+
+.UserHandBgSmall
+{
+	width:56px;
+	height:56px;
+	position:absolute;
+	z-index:2;	
+	background:url(../res/dialog/AthHead_BoxBg.png) no-repeat;
+}
+
+.UserHandQg
+{
+	width:56px;
+	height:56px;
+	position:absolute;
+	z-index:3;	
+	background:url(../res/dialog/AthHead_TxtBg.png) no-repeat;
+}
+
+.UserNameBox
+{
+	width:56px;
+	height:13px;
+	text-align:center;
+	font-weight:600;
+	color:White;
+	position:absolute;
+	font-family:微软雅黑;
+	font-size:11px;
+	line-height:11px;
+}
+
+.UserLVBox
+{
+	width:56px;
+	height:13px;
+	text-align:center;
+	font-weight:600;
+	color:#FF9900;
+	font-family:微软雅黑;
+	font-size:11px;
+	position:absolute;
+	line-height:11px;
+	top:43px;
+}
+
+/*点击建筑物后的小窗*/
+#AthleticsDialog
+{
+	width:331px;
+	height:228px;
+	position:absolute;
+	z-index:21;
+	left:76px;
+	background:url(../res/dialog/AtPVP_bg.png) no-repeat;
+}
+
+.RewardBox
+{
+	width:110px;
+	height:48px;
+	position:absolute;
+	z-index:10;
+	background:url(../res/dialog/Task_RewardBg.png) no-repeat;
+	overflow:hidden;
+}
+
+
+#MessageBg
+{
+	width:412px;
+	height:235px;
+	position:absolute;
+	z-index:1;	
+	left:16px;
+	top:48px;
+	background:url(../res/dialog/News_bg.png) no-repeat;
+}
+
+.MessageType
+{
+	width:34px;
+	height:18px;
+	position:absolute;
+	z-index:10;
+	background:url(../res/dialog/News_TXT.png) no-repeat;	
+}
+
+.DialogDiv
+{
+	width:450px;
+	height:304px;
+	position:absolute;
+	z-index:8000;
+	background:url(../res/dialog/LvUpReward_bg.png) no-repeat;	
+	top:8px;
+}
+
+#UpLvTitle
+{
+	width:208px;
+	height:58px;
+	position:absolute;
+	z-index:11;
+	background:url(../res/dialog/LvUpReward.png) no-repeat;	
+	top:-3px;
+	left:120px;
+}
+
+#RewardTitle
+{
+	width:284px;
+	height:55px;
+	position:absolute;
+	z-index:11;
+	background:url(../res/dialog/TXT_Rewards.png) no-repeat;	
+	top:7px;
+	left:83px;
+}
+
+.UpLvRewardBox
+{
+	width:155px;
+	height:147px;
+	position:absolute;
+	z-index:1;	
+	top:67px;
+	left:59px;
+}
+
+#YesBut
+{
+	width:60px;
+	height:45px;
+	position:absolute;
+	z-index:1;	
+	top:224px;
+	left:196px;
+}
+
+#YesBut a
+{
+	width:60px;
+	height:45px;
+	position:absolute;
+	display:block;
+	background:url(../res/dialog/PDetermine_a.png) no-repeat;
+}
+
+#YesBut a:hover
+{
+	background:url(../res/dialog/PDetermine_b.png) no-repeat;
+}
+
+#BulletinDialog
+{
+	width:298px;
+	height:235px;
+	position:absolute;
+	z-index:1;	
+	left:130px;
+	top:48px;
+	background:url(../res/dialog/AnnBg.png) no-repeat;
+}
+
+#BulletinDialogLeft
+{
+	width:111px;
+	height:235px;
+	position:absolute;
+	z-index:1;	
+	left:16px;
+	top:48px;
+	background:url(../res/dialog/UIHero.png) no-repeat;
+}
+
+
+.CampaignDiv
+{
+	width:420px;
+	height:240px;
+	position:absolute;
+	z-index:1;	
+	left:34px;
+	top:40px;
+}
+
+
+#CampaignDialog
+{
+	width:396px;
+	height:304px;
+	position:absolute;
+	z-index:30;
+	top:8px;
+	left:42px;
+	background:url(../res/BattleMap/battlebg.png) no-repeat;
+}
+
+#CampaignTitleBox
+{
+	width:201px;
+	height:44px;
+	top:2px;
+	left:142px;
+	position:absolute;
+	z-index:20;
+	background:url(../res/BattleMap/bitlebg.png) no-repeat;
+}
+
+#CampaignTitle
+{
+	width:114px;
+	height:32px;
+	top:5px;
+	left:44px;
+	position:absolute;
+	z-index:2;
+	background:url(../res/BattleMap/battletxt1.png) no-repeat;
+}
+
+/*战点简介*/
+#MbDetial
+{
+	position:absolute;
+	z-index:1;
+	top:50px;
+	left:68px;
+	font-family:微软雅黑;
+	font-size:14px;
+	color:#793F38;
+	width:310px;
+	font-weight:700;
+	position:absolute;
+	z-index:1;
+}
+
+#PointDiv
+{
+	width:360px;
+	height:50px;
+	background:url(../res/BattleMap/battledanbg.png) no-repeat;
+	position:absolute;
+	z-index:1;
+	top:117px;
+	left:18px;
+}
+
+.PintButton
+{
+	top:6px;
+	position:absolute;
+	z-index:1;
+	width:38px;
+	height:38px;
+	text-align:center;
+	color:White;
+	font-family:微软雅黑;
+	font-size:16px;
+	font-weight:700;
+	background:url(../res/BattleMap/batban.png) no-repeat;
+	line-height:38px;
+}
+
+.CampaignNameLeft
+{
+	background:url(../res/BattleMap/lbutt1.png) no-repeat;
+	position:absolute;
+	z-index:5;
+	width:39px;
+	height:44px;
+	top:137px;
+}
+
+.leftEnabled
+{
+	background:url(../res/BattleMap/lbutt2.png) no-repeat;	
+}
+
+.CampaignNameRight
+{
+	background:url(../res/BattleMap/rbutt1.png) no-repeat;
+	position:absolute;
+	z-index:5;
+	width:39px;
+	height:44px;
+	top:137px;
+	left:445px;
+}
+
+.rightEnabled
+{
+	background:url(../res/BattleMap/rbutt2.png) no-repeat;	
+}
+
+.RewardIcon
+{
+	background:url(../res/BattleMap/BattleIcon.png) no-repeat;
+	position:absolute;
+	z-index:3;
+	width:56px;
+	height:19px;
+}
+
+#AutomaticCrusadeDialog
+{
+	background:url(../res/BattleMap/battlebgA.png) no-repeat;
+	position:absolute;
+	z-index:30;
+	width:396px;
+	height:284px;
+}
+
+#ChooseHeroDialog
+{
+	background:url(../res/BattleMap/battlebgB.png) no-repeat;
+	position:absolute;
+	z-index:50;
+	width:396px;
+	height:146px;
+	top:69px;
+}
+
+.CrusadeState
+{
+	background:url(../res/BattleMap/AnonIcon.png) no-repeat;
+	position:absolute;
+	z-index:30;
+	width:54px;
+	height:45px;
+	top:-15px;
+}
+
+#CrusadeDialong
+{
+	background:url(../res/BattleMap/battlebgC.png) no-repeat;
+	position:absolute;
+	z-index:30;
+	width:202px;
+	height:118px;
+	left:128px;
+	top:110px;
+}
+
+#CrusadeResertDialog
+{
+	background:url(../res/BattleMap/battlebgD.png) no-repeat;
+	position:absolute;
+	z-index:30;
+	width:332px;
+	height:304px;
+	left:70px;
+	top:0px;
+}
+
+/*商城*/
+#ShopBg
+{
+	background:url(../res/dialog/Shop_bg_2.png) no-repeat;
+	position:absolute;
+	z-index:1;
+	width:412px;
+	height:235px;
+	left:16px;
+	top:34px;
+}
+
+.ShopItemBox
+{
+	background:url(../res/dialog/Shop_itembg.png) no-repeat;
+	position:absolute;
+	z-index:1;
+	width:130px;
+	height:94px;
+}
+
+.HotIcon
+{
+	background:url(../res/dialog/HOT.png) no-repeat;
+	position:absolute;
+	z-index:10;
+	width:30px;
+	height:29px;
+	right:0px;
+}
+
+.PriceType
+{
+	background:url(../res/dialog/Shop_Icon.png) no-repeat;
+	position:absolute;
+	z-index:10;
+	width:18px;
+	height:18px;
+	left:51px;
+}
+
+#ShopBuyDialog
+{
+	background:url(../res/dialog/Shop_bg_3.png) no-repeat;
+	position:absolute;
+	z-index:50;
+	width:280px;
+	height:246px;
+	left:82px;
+	top:22px
+}
+
+/*新手指引*/
+#NewGuideMess
+{
+	position:absolute;
+	z-index:1;
+	width:139px;
+	height:auto;
+}
+
+#NewGuideMessUp
+{
+	position:relative;
+	z-index:1;
+	width:139px;
+	height:auto;
+	background:url(../res/city/Guide_Box.png) no-repeat;
+	word-wrap:break-word;
+	font-size:13px;
+	padding:5px 10px 0 10px;
+	color:#6E432D;
+}
+
+#NewGuideMessUp div
+{
+	width:119px;
+	position:relative;
+	line-height:14px;
+}
+
+
+#NewGuideMessDown
+{
+	position:relative;
+	z-index:1;
+	width:139px;
+	height:10px;
+	background:url(../res/city/Guide_Box.png) no-repeat;
+	background-position:0 -95px;
+	display:block;
+}
+
+.FuBengDialog
+{
+	width: 484px;
+	height: 318px;
+	background: url(../res/BattleMap/Ui_bg.png)	no-repeat;
+	position:absolute;
+	z-index:20;
+}
+
+.FuBengbg
+{
+	width: 411px;
+	height: 242px;
+	background: url(../res/FuBen/CopyInfo_bg.png)	no-repeat;
+	position:absolute;
+	z-index:1;
+	left:1px;
+	top:-9px;
+}
+
+.NpcBox
+{
+	width: 257px;
+	height: 119px;	
+	position:absolute;
+	z-index:21;	
+	left:5px;
+	top:17px;
+}
+
+.NpcLock
+{
+	width:61px;
+	height:58px;
+	position:absolute;
+	z-index:22;	
+	background: url(../res/FuBen/CopyLock.png)	no-repeat;
+}
+
+.NpcFight
+{
+	width:61px;
+	height:60px;
+	position:absolute;
+	z-index:22;	
+	background: url(../res/FuBen/CopySelected.png)	no-repeat;
+}
+
+.NpcComplete
+{
+    width:61px;
+	height:39px;
+	position:absolute;
+	z-index:22;	
+	background: url(../res/FuBen/CopyKill.png)	no-repeat;
+}
+
+.NpcName
+{
+	width:257px;
+	height:119px;
+	position:absolute;
+	z-index:25;
+	left:5px;
+	top:17px;
+}
+
+#LotteryBg
+{
+    width:410px;
+	height:290px;
+	position:absolute;
+	z-index:32;	
+	left:37px;
+	top:14px;
+	background: url(../res/FuBen/CopyChest_bg.png)	no-repeat;
+}
+
+.LotteryBox1
+{
+    width:60px;
+	height:57px;
+	position:absolute;
+	z-index:10;	
+	background: url(../res/FuBen/CopyChest01.png) no-repeat;
+}
+
+.LotteryBox2
+{
+    width:60px;
+	height:57px;
+	position:absolute;
+	z-index:10;	
+	background: url(../res/FuBen/CopyChest02.png) no-repeat;
+}
+
+.LotteryBox3
+{
+    width:60px;
+	height:57px;
+	position:absolute;
+	z-index:10;	
+	background: url(../res/FuBen/CopyChest03.png) no-repeat;
+}
+
+#RechargeBg
+{
+    width:452px;
+	height:235px;
+	position:absolute;
+	z-index:10;	
+	left:16px;
+	top:48px;
+	background: url(../res/city/RechargeBg.png) no-repeat;	
+}
+
+.RechargeItemBox
+{
+    position:absolute;
+	z-index:10;
+	width:140px;
+	height:100px;	
+ }
+ 
+ .LoginReLight
+ {
+     width:33px;
+     height:55px;
+     position:absolute;
+     z-index:1;
+     background:url(../res/city/Landing_Material.png) -237px -318px no-repeat;
+ }
+ 
+ .LightOn
+ {
+     background-position:-204px -318px;
+ }
+ 
+ .L_R_I_Bg0
+ {
+     width:68px;
+     height:68px;
+     position:absolute;
+     z-index:1;
+     background:url(../res/city/Landing_Material.png) 0 -386px no-repeat;
+ }
+ 
+ .L_R_I_Bg1
+ {
+     width:68px;
+     height:68px;
+     position:absolute;
+     z-index:1;
+     background:url(../res/city/Landing_Material.png) 0 -318px no-repeat;
+ }
+ 
+ .L_R_I_Bg2
+ {
+     width:68px;
+     height:68px;
+     position:absolute;
+     z-index:1;
+     background:url(../res/city/Landing_Material.png) -68px -318px no-repeat;
+ }
+ 
+ .L_R_I_Bg3
+ {
+     width:68px;
+     height:68px;
+     position:absolute;
+     z-index:100;
+     background:url(../res/city/Landing_Material.png) -136px -318px no-repeat;
+ }
+
+#KillFirstDialog
+{
+     width:452px;
+     height:235px;
+     position:absolute;
+     z-index:1;
+     background:url(../res/city/FirstKill_Bg.png) no-repeat;
+     left:16px;
+	 top:48px;
+}
+
+.BossBg
+{
+     width:128px;
+     height:216px;
+     position:absolute;
+     z-index:1;
+     background:url(../res/city/FKPimgBg.png) no-repeat;
+    
+}
+
+.BoosHead
+{
+     width:128px;
+     height:100px;
+     position:absolute;
+     z-index:1;
+     background:url(../res/city/FK_ImgBoss.png) no-repeat;
+}
+
+.ActivityBox
+{
+     width:180px;
+     height:220px;
+     position:absolute;
+     z-index:1;
+}
+
+.ShenShouBox
+{
+     width:188px;
+     height:216px;
+     position:absolute;
+     z-index:1;
+     background:url(../res/activity/Animal_Bg1.png) no-repeat;     
+}
+
+.ShenShouStatus
+{
+     width:64px;
+     height:64px;
+     position:absolute;
+     z-index:20;
+     background:url(../res/activity/Label_Animal.png) no-repeat;
+}
+
+.C_R_Mnume
+{
+	width:84px;
+	height:34px;
+	position:absolute;
+	z-index:16;	
+	background:url(../res/kaifu/RechargeColumn.png) no-repeat;
+	background-position:0 -34px;
+}
+
+.C_R_MnumeClick
+{
+	width:84px;
+	height:34px;
+	position:absolute;
+	z-index:16;	
+	background:url(../res/kaifu/RechargeColumn.png) no-repeat;	
+}
+
+.C_R_MuneFont
+{
+	width:71px;
+	height:16px;
+	position:absolute;
+	z-index:1;
+	text-align:center;		
+	top:9px;
+	left:6px;
+	color:#fff;
+	font-size:13px;
+	line-height:15px;
+}
+
+.C_R_MuneFontClick
+{
+	width:71px;
+	height:16px;
+	position:absolute;
+	z-index:1;	
+	text-align:center;
+	left:6px;
+	top:9px;
+	font-size:13px;
+	line-height:15px;
+	color:#990000;
+}
+
+.train_Mnume
+{
+	width:58px;
+	height:38px;
+	position:absolute;
+	z-index:16;	
+	background:url(../res/dialog/TraBgaColumn.png) no-repeat;
+	background-position:0 -38px;
+}
+
+.train_MnumeClick
+{
+	width:58px;
+	height:38px;
+	position:absolute;
+	z-index:16;	
+	background:url(../res/dialog/TraBgaColumn.png) no-repeat;	
+}
+
+.train_MuneFont
+{
+	width:51px;
+	height:24px;
+	position:absolute;
+	z-index:1;	
+	background:url(../res/dialog/TraBgaTxt2.png) no-repeat;	
+	top:7px;
+	left:3px;
+}
+
+.train_MuneFontClick
+{
+	width:51px;
+	height:24px;
+	position:absolute;
+	z-index:1;	
+	background:url(../res/dialog/TraBgaTxt1.png) no-repeat;
+	left:3px;
+	top:7px;
+}
+
+.MessageNum
+{   
+    background:url(../res/city/Message_Bg.png)  no-repeat;    
+    color:white;
+    width:25px;    
+    font-size:12px;
+    text-align:center;
+    position:absolute;
+    height:25px;
+    left:18px;
+    font-family:黑体;
+    line-height:25px;    
+}
+
+.GongGaoBtn
+{
+    width:104px;
+    height:48px;
+    background:url(../res/city/AnnBut2.png) no-repeat;
+    text-align:center;
+    font-size:16px;
+    color:White;
+    font-weight:600;
+    -webkit-text-shadow:-1px -1px 0 #000,1px -1px #000,1px 1px #000,-1px 1px #000;
+	-moz-text-shadow:-1px -1px 0 #000,1px -1px #000,1px 1px #000,-1px 1px #000;
+	text-shadow:-1px -1px 0 #000,1px -1px #000,1px 1px #000,-1px 1px #000;
+	position:absolute;
+	line-height:48px;
+}
+
+.GongGaoBtnShow
+{
+    position:absolute;
+	line-height:48px;
+    width:104px;
+    height:48px;
+    background:url(../res/city/AnnBut1.png) no-repeat;
+    text-align:center;
+    font-size:16px;
+    color:White;
+    font-weight:600;
+    -webkit-text-shadow:-1px -1px 0 #000,1px -1px #000,1px 1px #000,-1px 1px #000;
+	-moz-text-shadow:-1px -1px 0 #000,1px -1px #000,1px 1px #000,-1px 1px #000;
+	text-shadow:-1px -1px 0 #000,1px -1px #000,1px 1px #000,-1px 1px #000;
+	filter:
+        Dropshadow(offx=-1,offy=-1,color=black)
+        Dropshadow(offx=1,offy=-1,color=black)
+        Dropshadow(offx=1,offy=1,color=black)
+        Dropshadow(offx=-1,offy=1,color=black);
+}
+
+#ShengJiangDia
+{
+    width:275px;
+	height:286px;
+	position:absolute;
+	z-index:70;	
+	background:url(../res/activity/shenjiang/GeneralsEBg.png) no-repeat;
+	left:103px;
+	top:13px;
+}
+
+#MineBg
+{
+    height:320px;
+	position:absolute;
+	z-index:70;	
+	background:url(../res/city/MiningArea/MiningAreaBg.png) no-repeat;
+}
+
+/*回城按钮*/
+#BackCity a
+{
+    width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/city/MiningArea/MiningCity.png) no-repeat;
+	display:block;	
+}
+#BackCity a:hover
+{
+	background-position:-44px 0;
+}
+
+.MineBulid
+{
+    position:absolute;
+    z-index:10;
+    width:110px;
+    height:80px;
+    background:url(../res/city/MiningArea/MiningArea.png) no-repeat;
+}
+
+#MinePageTitle
+{
+    position:absolute;
+    z-index:10;
+    width:173px;
+    height:36px;
+    background:url(../res/city/MiningArea/MiningAreaTxtBg.png) no-repeat;
+    top:4px;
+    text-align:center;
+    color:White;
+    font-family:微软雅黑;
+    font-size:16px;
+    line-height:36px;
+    font-weight:300;
+}
+
+.MinePageTitle
+{
+    position:absolute;
+    z-index:10;
+    width:173px;
+    height:36px;
+    background:url(../res/city/MiningArea/MiningAreaTxtBg.png) no-repeat;
+    top:4px;
+    text-align:center;
+    color:White;
+    font-family:微软雅黑;
+    font-size:16px;
+    line-height:36px;
+    font-weight:300;
+}
+
+#MineDataDialog
+{
+    position:absolute;
+    z-index:100;
+    width:332px;
+    height:226px;
+    background:url(../res/city/MiningArea/MiningInformation.png) no-repeat;
+    top:47px;
+}
+
+/*任务按钮*/
+#TaskIconBtn a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/city/LeftColumn.png) no-repeat;
+	display:block;	
+}
+#TaskIconBtn a:hover
+{
+	background-position:-44px 0;
+}
+
+/*排行按钮*/
+#RankIconBtn a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/city/LeftColumn.png) no-repeat;
+	background-position:0 -48px;
+	display:block;	
+}
+#RankIconBtn a:hover
+{
+	background-position:-44px -48px;
+}
+
+#TaskInfoDia
+{
+    width:298px;
+	height:235px;
+	background:url(../res/dialog/TaskN_bg.png) no-repeat;
+	position:absolute;
+	z-index:11;
+	top:48px;
+	left:129px;    
+}
+
+
+#album, .album {
+        position: absolute;
+		width: 327px;
+		height: 426px;
+		overflow: hidden;
+		margin: 0 auto;
+		top:32px;
+		left:12px;
+	}
+
+	#paging, .paging {
+		position: absolute;
+		width: 327px;
+		height: 426px;
+	}
+
+	#paging div.page, .paging div.pagediv {
+		float: left;
+		width: 327px;
+		height: 426px;
+		background-repeat: no-repeat;		
+		display: none;
+		cursor: pointer;
+		position:relative;
+		margin:0;
+	}
+	
+	.userheadBig{position:absolute;width:80px;height:100px;z-index:1;}
+	
+	.userrankBg{z-index:2;position:absolute;width:100px;height:43px; background:url(../res/Ranking/RankingDBg.png) no-repeat;text-align:center;font-size:14px;color:white; font-weight:500;line-height:35px;}
+	
+	.userRank{position:absolute;width:51px;height:16px; background:url(../res/Ranking/RankingTxt.png) no-repeat;top:27px;left:5px;z-index:3;}
+	
+#VipSelect
+{
+    width:78px;
+	height:54px;
+	background:url(../res/Vip/VipSelected.png) no-repeat;
+	position:absolute;
+	z-index:25;
+	top:1px;
+}
+
+.WarState{width:29px;height:47px;background:url(../res/Campaign/WarState.png) no-repeat;position:absolute;z-index:5;top:20px;left:55px;}
+
+/*祭拜按钮*/
+#Exit a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/Campaign/MiningWar.png) no-repeat;	
+	display:block;	
+	background-position:0 -96px;	
+}
+#Exit a:hover
+{
+	background-position:-44px -96px;
+}
+
+#Show a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/Campaign/MiningWar.png) no-repeat;	
+	display:block;
+}
+#Show a:hover
+{
+	background-position:-44px 0;
+}
+
+#EnShow a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/Campaign/MiningWar.png) no-repeat;	
+	display:block;
+	background-position:0 -48px;
+}
+#EnShow a:hover
+{
+	background-position:-44px -48px;
+}
+
+.FuBenBody
+{
+    position:absolute;
+	z-index:5;
+	width:60px;
+	height:70px;
+}
+
+#BwSelect
+{
+    width:78px;
+	height:74px;
+	background:url(../res/bowu/PitchOn.png) no-repeat;
+	position:absolute;
+	z-index:25;
+	top:1px;
+}
+
+.WarPlayerInfo
+{
+    width:144px;
+	height:38px;
+	background:url(../res/Campaign/WarInfoBg.png) no-repeat;
+	position:absolute;
+	z-index:51;
+	color:White;
+	font-family:微软雅黑;
+	font-size:12px;
+	padding:5px 0 0 38px;	
+}
+
+.WarInfo
+{
+    width:120px;
+	height:20px;
+	background:url(../res/Campaign/WarInfoBgs.png) no-repeat;
+	position:absolute;
+	z-index:51;
+}
+
+.vipSmall
+{
+    width:21px;
+	height:12px;
+	background:url(../res/Vip/VipSmall.png) no-repeat;
+	position:absolute;	
+	z-index:2;
+	top:20px;
+	left:111px;	
+}
+
+.talkdia{ opacity:0.8; filter: alpha(opacity=80);border-radius:10px; position:absolute; background:#000;font-family:微软雅黑; font-size:12px;color:#fff; line-height:14px; width:100px; padding:5px 10px 5px 10px; text-align:left;z-index:20;}
+
+.ChatTabBtn{ position:absolute;z-index:1;width:64px;height:40px; background:url(../res/city/Chat_But.png) no-repeat 0 -40px; font-size:14px; text-align:center; line-height:40px; color:#6E432D;}
+.ChatShow{ position:absolute;z-index:1;width:64px;height:40px; background:url(../res/city/Chat_But.png) no-repeat; font-size:14px; text-align:center; line-height:40px; color:#fff;}
+.chatnick{color:#ffff99;text-decoration:underline;}
+#chatdivsmall{ position:absolute;z-index:30;width:196px;height:48px;white-space:nowrap; background:url(../res/city/Chat_sBG.png) no-repeat; line-height:16px; overflow:hidden; font-size:14px;top:271px; padding:3px 0 0 0;}
+#ChatTypeDiv{ position:absolute; z-index:10; width:78px; height:70px; background:url(../res/city/Chat_Seq1.png) no-repeat; left:2px; top:225px; overflow:hidden;}
+#chatdivsmall div{ position:absolute; width:180px; overflow:hidden; color:White;}
+#chatdivsmall div img{ height:20px;vertical-align:middle;}
+#FaceDiv{ position:absolute; z-index:30;width:200px;height:144px; border:1px solid #fff; background:#000;top:131px;left:290px;}
+#FaceDiv img{ position:relative; margin:5px 0 0 7px; border:none; width:25px; height:25px;}
+
+#zsStars{position:absolute; z-index:10;width:150px; height:29px; left:6px;top:99px; padding:0px; margin:0px; }
+#zsStars div{position:relative; z-index:1;width:29px; height:29px; float:left; padding:0px; margin-right:-2px;}
+#zsStars .Copper{background:url(../res/dialog/Turn_Star.png) no-repeat;}
+#zsStars .Silver{background:url(../res/dialog/Turn_Star.png) -29px 0 no-repeat;}
+#zsStars .Glod{background:url(../res/dialog/Turn_Star.png) -58px 0 no-repeat;}
+
+#CdKeydia{position:absolute; z-index:20;width:388px; height:261px; left:11px;top:14px;background:url(../res/system/SysGiftBg.png) no-repeat;}
+.ZodiacBox{position:absolute; z-index:2;width:100px; height:200px; background:url(../res/Zodiac/Zod_bg2.png) no-repeat;}
+.ZodiacBody{position:absolute; z-index:2;width:100px; height:140px; background:url(../res/Zodiac/Zod_Figure.png) no-repeat;}
+.ZodiacLv{position:absolute; z-index:3;width:44px; height:23px; background:url(../res/Zodiac/Zod_Tag1.png) no-repeat;top:124px;}
+
+/*购买按钮*/
+#ZByIcon a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/Zodiac/Buy_Tag.png) no-repeat;
+	display:block;	
+}
+#ZByIcon a:hover
+{
+	background-position:-44px 0;
+}
+
+/*51活动按钮*/
+#_51btn a
+{
+	width:44px;
+	height:48px;
+	border:0px;
+	background:url(../res/activity/51/Activity_LaborLabel.png) no-repeat;
+	display:block;	
+}
+#_51btn a:hover
+{
+	background-position:-44px 0;
+}

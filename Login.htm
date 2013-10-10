@@ -1,0 +1,318 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>登录&注册</title>    
+    <link href="css/public.css" rel="Stylesheet" type="text/css" />
+    <link href="css/Login.css" rel="Stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+    <script type="text/javascript" src="js/iscroll-lite.js"></script>    
+    <script type="text/javascript" src="js/public.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript">
+        //屏幕尺寸
+        var Systemdata = { "width": 569, "height": 320, "MusicState": 1, "userid": 1058221, "isnight": 0, "utype": 102, "special": 1, "chatPrompt": 0 };
+
+        var autologin = 1;
+
+        //类型，0为新开，1为火爆，2为准备
+        var serverJson = { 'gameinfo': { 'v': 7, 'url': 'http://www.play824.com:1089/apk/lnsg1.1.6zhenqu1.apk', 't': 0, 'e': 0 },
+            'serverlist': [
+         { 'sid': 3, 'sname': '3区 群雄争霸', 'ip': '58.215.133.215', 'port': 8030, 'type': 1 },
+          { 'sid': 2, 'sname': '2区 桃园结义', 'ip': '58.215.133.215', 'port': 6010, 'type': 0 },
+          { 'sid': 1, 'sname': '1区 黄巾之乱', 'ip': '58.215.133.215', 'port': 5010, 'type': 0 }
+          ],
+          'latelyServer': [{ "port": 5010, "sid": 1, "type": 0, "sname": "1区 黄巾之乱", "ip": "58.215.133.215" }, { "port": 6010, "sid": 2, "type": 0, "sname": "2区 桃园结义", "ip": "58.215.133.215"}] };
+
+
+        var myScroll;
+        function loadedwrapper() {
+            myScroll = new iScroll('wrapper', { 'hScrollbar': false, 'vScrollbar': false });
+        }
+
+        var serverid = 0;
+    </script>   
+</head>
+<body>    
+    <div id="main">
+        <img style='margin-top:5px;' src='res/login/nBgLogo.png' />
+        <div id='logindiv'>
+            <div class='ButtonBig' style='width:144px;height:71px;top:7px; background:url(res/login/Area_Bg.png) no-repeat;text-align:center; line-height:36px;'>
+                <div class='DefaultFont' style='width:105px;text-align:right;' onclick="showservers();" id='choseArray'></div>
+                <div id='serversta'></div>
+            </div>
+            <div id='startgamebtn' class='ButtonBig' style="background:url(res/login/dmass.png) no-repeat;width:178px;height:56px;top:234px;left:215px;" onclick='LoginClass.QuickLogin();'></div>
+            <div id='autologinbtn' class='ButtonSmall' style="background:url(res/login/checkbox.png) no-repeat;width:32px;height:32px;top:244px;left:371px;display:none;" onclick='CancelAutoLogin()'></div>
+            <div id='autologintext' style="position:absolute; background:url(res/login/login_text.png) no-repeat;width:65px;height:21px;top:250px;left:404px;display:none;"></div>
+            <div class='DefaultFont' id='detailfont' style='font-size:14px;top:298px;text-align:center;'>一般来说，资质越高，武将越厉害哦</div>
+        </div>            
+        <div id='serverbg' style='display:none'>
+            <div class="ButtonSmall" style="width:39px;height:38px;background:url(res/dialog/Shop_close.png) no-repeat;top:8px;left:438px;" onclick="closeSerList();"></div>         
+        </div>        
+    </div>
+</body>
+<script type="text/javascript">
+    //加城城池界面
+    $(document).ready(function () {
+        $("#main").css("width", Systemdata.width);
+        switch (Systemdata.width) {
+            case 480:
+                $("#main").css({ "background-position": "-45px 0" });
+                break;
+            case 533:
+                $("#main").css({ "background-position": "-18px 0" });
+                break;
+            case 569:
+                $("#main").css({ "background-position": "0 0" });
+                break;
+        }
+
+        $("#startgamebtn").css("left", (Systemdata.width - 178) / 2);
+        $("#autologinbtn").css("left", (378 - (569 - Systemdata.width) / 2));
+        $("#autologintext").css("left", (411 - (569 - Systemdata.width) / 2));
+        $("#serverbg").css("left", (Systemdata.width - 480) / 2);
+        $("#detailfont").css("width", Systemdata.width);
+
+        var index = parseInt(Math.random() * PromptJson.length);
+        $("#detailfont").html(PromptJson[index].text);
+        switch (Systemdata.utype) {
+            case 4: //sky
+                $("#startgamebtn").css("background", "url(res/login/mpass.png) no-repeat");
+                $("#autologinbtn").css("display", "");
+                $("#autologintext").css("display", "");
+                break;
+            case 8: //oppo
+                $("#startgamebtn").css("background", "url(res/login/nmass.png) no-repeat");
+                break;
+            case 15: //uc
+                $("#startgamebtn").css("background", "url(res/login/ucass.png) no-repeat");
+                break;
+            default: //DM
+                $("#startgamebtn").css("background", "url(res/login/dmass.png) no-repeat");
+                $("#autologinbtn").css("display", "");
+                $("#autologintext").css("display", "");
+                break;
+        }
+
+        loadServers();
+    });
+
+    var loadServers = function (json) {
+        //serverJson = eval("(" + json + ")");
+        var str = new Array();
+        //最近登录过的区        
+        var left = 49, top = 73;
+        var temp = "", color = "";
+
+        if (serverJson.latelyServer.length > 0) {
+            for (var i = 0; i < serverJson.latelyServer.length; i++) {
+                for (var j = 0; j < serverJson.serverlist.length; j++) {
+                    if (serverJson.latelyServer[i].sid == serverJson.serverlist[j].sid) {
+                        serverJson.latelyServer[i].type = serverJson.serverlist[j].type;
+                        break;
+                    }
+                }
+            }
+            switch (serverJson.latelyServer[0].type) {
+                case 1:
+                    temp = "新开";
+                    color = "0 -28px";
+                    break;
+                case 0:
+                    temp = "火爆";
+                    color = "";
+                    break;
+                case 2:
+                    temp = "准备";
+                    color = "";
+                    break;
+                case 3:
+                    temp = "维护";
+                    color = "";
+                    break;
+                case 4:
+                    temp = "拥挤";
+                    color = "";
+                    break;
+            }
+            $("#choseArray").html(serverJson.latelyServer[0].sname + "");
+            $("#serversta").css("background-position", color);
+            for (var i = 0; i < serverJson.latelyServer.length; i++) {
+                switch (serverJson.latelyServer[i].type) {
+                    case 1:
+                        temp = "新开";
+                        color = "#00ff00";
+                        break;
+                    case 0:
+                        temp = "火爆";
+                        color = "Red";
+                        break;
+                    case 2:
+                        temp = "准备";
+                        color = "orange";
+                        break;
+                    case 3:
+                        temp = "维护";
+                        color = "orange";
+                        break;
+                }
+                str.push("<div class='severArray1' style='top:" + top + "px;left:" + left + "px;'  ontouchmove='getmovingposx()' ontouchstart='getposx()' ontouchend='if (Math.abs(lastPosX - beforePosX) < 5) chooseSer(" + i + ",1);'>" + serverJson.latelyServer[i].sname + "<font style='color:" + color + ";'>(" + temp + ")</font></div>");
+                left += 198;
+                if (i == 1)
+                    break;
+            }
+        }
+
+        left = 0; top = 0;
+        var len = parseInt(serverJson.serverlist.length / 2);
+        if (serverJson.serverlist.length % 2 != 0)
+            len += 1;
+
+        str.push("<div id='wrapper'><div id='scroller' style='height:" + (len * 34 + 16 * (len - 1)) + "px;'>");
+        str.push('<ul style="height:' + (len * 34 + 16 * (len - 1)) + 'px;"><li>');
+        var left = 0;
+        for (var i = 0; i < serverJson.serverlist.length; i++) {
+            switch (serverJson.serverlist[i].type) {
+                case 1:
+                    temp = "新开";
+                    color = "#00ff00";
+                    break;
+                case 0:
+                    temp = "火爆";
+                    color = "#ff0000";
+                    break;
+                case 2:
+                    temp = "准备";
+                    color = "orange";
+                    break;
+                case 3:
+                    temp = "维护";
+                    color = "orange";
+                    break;
+            }
+            str.push("<div class='severArray2' style='top:" + top + "px;left:" + left + "px;'  ontouchmove='getmovingposx()' ontouchstart='getposx()' ontouchend='if (Math.abs(lastPosX - beforePosX) < 5) chooseSer(" + i + ",2);'>" + serverJson.serverlist[i].sname + "<font style='color:" + color + ";'>(" + temp + ")</font></div>");
+            if ((i + 1) % 2 == 0) {
+                left = 0;
+                top += 50;
+            }
+            else
+                left += 198;
+        }
+
+        var divnode = document.createElement("div");
+        divnode.innerHTML = str.join("");
+        document.getElementById("serverbg").appendChild(divnode);
+
+        myScroll = new iScroll('wrapper', { 'hScrollbar': false, 'vScrollbar': false });
+        window.addEventListener('DOMContentLoaded', loadedwrapper, false);
+
+        if (serverJson.latelyServer.length < 1) {
+            for (var i = 0; i < serverJson.serverlist.length; i++) {
+                if (serverJson.serverlist[i].type == 1) {
+                    $("#serversta").css("background-position", "0 -28px");
+                    $("#choseArray").html(serverJson.serverlist[i].sname);
+                    serverid = serverJson.serverlist[i].sid;
+                    break;
+                }
+            }
+        }
+    }
+
+    //选择服务区
+    var chooseSer = function (obj, type) {
+        if (type == 1) {
+            if (serverJson.latelyServer[obj].type == 2 || serverJson.latelyServer[obj].type == 3)
+                return;
+            closeSerList();
+            serverid = serverJson.latelyServer[obj].sid;
+            switch (serverJson.latelyServer[obj].type) {
+                case 1:
+                    temp = "新开";
+                    color = "0 -28px";
+                    break;
+                case 0:
+                    temp = "火爆";
+                    color = "";
+                    break;
+                case 2:
+                    temp = "准备";
+                    color = "";
+                    break;
+                case 3:
+                    temp = "维护";
+                    color = "";
+                    break;
+            }
+            $("#choseArray").html(serverJson.latelyServer[obj].sname);
+            $("#serversta").css("background-position", color);
+            return;
+        }
+        if (serverJson.serverlist[obj].type == 2 || serverJson.serverlist[obj].type == 3)
+            return;
+        closeSerList();
+        serverid = serverJson.serverlist[obj].sid;
+        switch (serverJson.serverlist[obj].type) {
+            case 1:
+                temp = "新开";
+                color = "0 -28px";
+                break;
+            case 0:
+                temp = "火爆";
+                color = "";
+                break;
+            case 2:
+                temp = "准备";
+                color = "";
+                break;
+            case 3:
+                temp = "维护";
+                color = "";
+                break;
+        }
+        $("#choseArray").html(serverJson.serverlist[obj].sname);
+        $("#serversta").css("background-position", color);
+    }
+
+    var closeSerList = function () {
+        $("#logindiv").css("display", "");
+        $("#serverbg").css("display", "none");
+    }
+
+    var showservers = function () {
+        $("#logindiv").css("display", "none");
+        $("#serverbg").css("display", "");
+    }
+
+    //选择其它账号登录
+    var CancelAutoLogin = function () {
+        if (autologin == 1) {
+            $("#autologinbtn").css({ "background": "url(res/login/checkbox_empty.png) no-repeat" });
+            autologin = 0;
+        }
+        else {
+            $("#autologinbtn").css({ "background": "url(res/login/checkbox.png) no-repeat" });
+            autologin = 1;
+        }
+    }
+
+   //检查输入中的非法字符
+    function checkChar(InString) {
+        var RefString = "<";
+        var RefString2 = "%";
+        var RefString3 = "\"";
+        var RefString4 = ">";
+        var RefString5 = "~";
+        var RefString6 = "&";
+        var RefString7 = "?";
+        var RefString8 = "'";
+        for (Count = 0; Count < InString.length; Count++) {
+            TempChar = InString.substring(Count, Count + 1);
+            if ((RefString.indexOf(TempChar, 0) == 0) || (RefString2.indexOf(TempChar, 0) == 0) || (RefString3.indexOf(TempChar, 0) == 0) || (RefString4.indexOf(TempChar, 0) == 0) || (RefString5.indexOf(TempChar, 0) == 0) || (RefString6.indexOf(TempChar, 0) == 0) || (RefString7.indexOf(TempChar, 0) == 0) || (RefString8.indexOf(TempChar, 0) == 0)) {
+                //alert("您的输入中含有非法字符\"<\",\"\"\",\"%\",\"> \",\"~\",\"&\",\"?\",\"'\",请重新输入!");
+                return (false);
+            }
+        }
+        return (true);
+    }
+
+</script>
+</html>

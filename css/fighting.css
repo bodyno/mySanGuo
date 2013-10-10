@@ -1,0 +1,18 @@
+﻿ body{padding:0px;margin:0px;}
+	
+ /*********************public****************************/
+ #main {width:480px;height:320px;}
+    
+ .fightbg { position:absolute; z-index:2; background-image:url(../res/backimg/0.png); width:480px;height:320px;}
+    
+ /*血条*/
+ .HP{ height:3px;border:1px black solid; width:40px; position:absolute; z-index:3; top:18px; left:25px;}
+     
+ /*减血显示*/
+ .bleeding{color:white; font-size:20px; position:absolute; font-weight:bolder; z-index:1000; width:100%;}       
+     
+ .Left{	position:absolute;z-index:3;-moz-transform:scaleX(-1); -webkit-transform:scaleX(-1); -o-transform:scaleX(-1); transform:scaleX(-1); /*IE*/filter:FlipH;	transform: rotateY(180deg); }
+     
+ .Right{position:absolute;z-index:3;}
+     
+      

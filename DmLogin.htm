@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>登录&注册</title>    
+    <link href="css/index.css" rel="Stylesheet" type="text/css" />    
+    <script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>   
+</head>
+<body>    
+    <div id='title'>登录鼎梦通行证<div class='titlebtn' id='regist' style="right:5px;width:80px;" onclick='window.RegisterJavascriptInterface.autoLogin();'>快速注册</div></div>
+         <div class="login_form" id="weblign">           
+             <div class="form_item form_item_username">
+                 <label class="ui_placeholder">账号</label>
+                 <input onkeypress="return keyDigitWithOutDotKeyCheck(event);" autocomplete="false"  onpaste="return false"  maxlength="16" value=""  id="u" name="u"  tabindex="2" type="text" class="ui_textinput" />
+                 <label id='umess' style="display:none;" class='ui_detail'>账号为6-16位的字母数字组合</label>
+             </div>
+             <div class="form_item form_item_password">
+                 <label class="ui_placeholder">密码</label>
+                 <input autocomplete="false" onpaste="return false" maxlength="16" type="password"  id="p" name="p" tabindex="3" class="ui_textinput" value=""/>
+                 <label id='pmess' style="display:none;" class='ui_detail'>密码为6-16位的字母、数字组合</label>
+             </div>             
+             <div class="form_item form_item_btn">
+                <input type="button" class='ui_btn btn_login' onclick='return logincheck();' value='登&nbsp;&nbsp;录' /> 
+                <label id='bmess' style="display:none;top:12px;left:110px;" class='ui_detail'>账号或密码错误</label>
+             </div>             
+        </div>
+</body>
+<script type="text/javascript">
+    var ipu = $('#u'), hipu = $('#uhint'), ipp = $('#p'), hipp = $('#phint');
+
+    document.getElementById("u").onblur = function () {
+        $("#u").removeClass("ui_textinput_focus");
+    };
+
+    document.getElementById("u").onfocus = function () { $("#u").addClass("ui_textinput_focus"); };
+    document.getElementById("u").onkeyup = function () {
+        if ($("#u").val().length > 0) {
+            $("#u").addClass("ui_textinput_changed");
+        } else {
+            $("#u").removeClass("ui_textinput_changed");
+        }
+    };
+
+    document.getElementById("p").onfocus = function () { $("#p").addClass("ui_textinput_focus"); };
+    document.getElementById("p").onblur = function () { $("#p").removeClass("ui_textinput_focus"); };
+    document.getElementById("p").onkeyup = function () {
+        if (ipp.val().length > 0) {
+            $("#p").addClass("ui_textinput_changed");
+        } else {
+            $("#p").removeClass("ui_textinput_changed");
+        }
+    };
+
+    var logincheck = function () {
+        if ($('#u').val() == "") {
+            $("#umess").css("display", "");
+            return false;
+        }
+        $("#umess").css("display", "none");
+        if ($("#p").val() == "") {
+            $("#pmess").css("display", "");
+            return false;
+        }
+
+        if ($("#p").val().length < 6) {
+            $("#pmess").css("display", "");
+            $("#pmess").html("密码长度不能小于6位");
+            return false;
+        }
+
+        $("#pmess").css("display", "none");
+        window.RegisterJavascriptInterface.login($('#u').val(), $("#p").val());
+    }
+
+    $(document).ready(function () {
+        var w = document.body.clientWidth;
+        if (w <= 185)
+            w = 320;
+
+        $("#weblign").css("left", (w - 185) / 2);
+        $("#u").val("");
+        $("#p").val("");
+        if (loginerro != null) {
+            $("#bmess").css("display", "");
+            $("#bmess").html("用户名或密码不正确");
+        }
+    });
+
+    //只允许输入数字、字母
+    function keyDigitWithOutDotKeyCheck(evt) {
+        evt = (evt) ? evt : ((window.event) ? window.event : "") //兼容IE和Firefox获得keyBoardEvent对象
+        var key = evt.keyCode ? evt.keyCode : evt.which; //兼容IE和Firefox获得keyBoardEvent对象的键值
+        if ((key < 48 || (key > 57 && key < 65) || (key > 90 && key < 91) || key > 122) && key != 8) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+</script>
+</html>

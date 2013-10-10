@@ -1,0 +1,225 @@
+﻿/*酒馆窗口样式*/
+#PubDialog
+{
+	/*width:298px;
+	height:235px;
+	background:url(../res/dialog/UI_RRecruitment.png) no-repeat;
+	position:absolute;
+	z-index:11;
+	top:48px;
+	left:129px;*/
+	width:412px;
+	height:235px;
+	background:url(../res/dialog/RecruitingDbg.png) no-repeat;
+	position:absolute;
+	z-index:11;
+	top:48px;
+	left:16px;
+}
+/*******************************************************************/
+#pubwrapper {
+	position:absolute;
+	z-index:1;
+	top:11px;
+	left:32px;	
+	overflow:auto;
+	width:351px;
+	height:94px;
+}
+
+#pubscroller {
+	position:absolute; z-index:1;
+	-webkit-touch-callout:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);	
+	padding:0;
+	height:94px;
+}
+
+#pubscroller ul {
+	list-style:none;
+	padding:0;
+	margin:0;
+	width:100%;
+	text-align:left;
+}
+
+#pubscroller li {
+	height:94px;	
+} 
+/*******************************************************************/
+
+/*酒馆英雄列表背景*/
+.pubHeroSelect
+{
+    width:78px;
+	height:94px;
+	background:url(../res/dialog/RecruitingPbg.png) no-repeat;
+	position:absolute;
+	z-index:1;
+}
+
+#HeroClickBig
+{
+	width:78px;
+	height:94px;
+	background:url(../res/dialog/RecruitingPfg.png) no-repeat;
+	position:absolute;
+	z-index:30;	
+}
+
+.GemIcon
+{
+    width:25px;
+    height:25px;
+    position:absolute;
+    z-index:10;
+    left:256px;
+    top:38px;
+}
+
+#skillName
+{
+	color:#49BAC6;
+	font-family:微软雅黑;
+	font-weight:700;
+	font-size:14px;
+	position:absolute;
+	z-index:15;
+	top:149px;
+	left:145px;	
+}
+
+#skillDetial
+{
+	color:#855837;
+	font-family:微软雅黑;
+	font-weight:700;
+	font-size:13px;
+	position:absolute;
+	z-index:15;
+	top:164px;
+	left:145px;	
+	width:150px;
+	line-height:14px;
+}
+
+/*当日可刷新次数提法*/
+#CanResDetail
+{
+	color:#492816;
+	width:298px;
+	text-align:center;
+	font-size:16px;
+	font-weight:800;
+	position:absolute;
+	z-index:15;
+	top:211px;
+	font-family:微软雅黑;
+}
+
+/*已招聘标签*/
+.HasRecruit
+{
+	width:73px;
+	height:47px;
+	z-index:55;
+	top:24px;
+	left:2px;
+	background:url(../res/dialog/Label_Recruitment.png) no-repeat;	
+	position:absolute;
+}
+
+/*合成窗口物品列表*/
+#SynthesisHeroSelect
+{
+	width:111px;
+	height:235px;
+	background:url(../res/dialog/UIEternal.png) no-repeat;
+	position:absolute;
+	z-index:15;
+	top:48px;
+	left:16px;
+}
+
+/*合成窗口英雄信息*/
+#SynthesisHeroDataDialog
+{
+	width:298px;
+	height:235px;
+	background:url(../res/dialog/UI_REternal.png) no-repeat;
+	position:absolute;
+	z-index:13;
+	top:48px;
+	left:129px;
+}
+
+.WuhunItem
+{
+	width:103px;
+	height:42px;	
+	position:absolute;
+	z-index:13;
+	color:#492816;
+	font-size:12px;
+	font-weight:600;
+	font-family:微软雅黑;
+	text-align:center;
+	padding:0px 0 0 20px;
+	line-height:16px;
+}
+
+#GoodsClick
+{
+	width:125px;
+	height:42px;
+	background:url(../res/dialog/SelBox.png) no-repeat;
+	position:absolute;
+	z-index:1;
+}
+
+#discount
+{
+	color:#6E432D;
+	font-size:14px;
+	font-weight:800;
+	font-family:微软雅黑;
+	position:absolute;
+	z-index:19;
+	text-align:center;
+	top:12px;
+	left:9px;
+	width:139px;
+}
+
+
+.MoneyDetail
+{
+	width:65px;
+	height:14px;
+	background:url(../res/dialog/Pub_CoinVal.png) no-repeat;
+	position:absolute;
+	z-index:16;
+	top:177px;
+	left:169px;
+}
+
+#TradingDia
+{
+    width:452px;
+    height:236px;
+    position:absolute;
+    z-index:10;
+    background:url(../res/dialog/TradeBg.png) no-repeat;
+    top:48px;
+    left:16px;
+}
+
+/*贸易点亮*/
+.TradingLit
+{
+    width:78px;
+    height:94px;
+    z-index:10;
+    background:url(../res/dialog/TradePeople.png) no-repeat;  
+    position:absolute;  
+}

@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>登录&注册</title>    
+    <link href="css/index.css" rel="Stylesheet" type="text/css" />    
+    <script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+    <script type="text/javascript">
+        var LoginJson = "";
+    </script>
+    <style type="text/css">
+    body{ overflow:auto;}
+    #ulistbox div{ position:relative; font-size:12px; text-align:center; line-height:80px; margin-right:10px; margin-bottom:10px; float:left;
+       display:inline-block; width:22%;height:80px;border-color:#56BDF3;box-shadow:0 0 5px rgba(84,189,242,.6),0 1px 3px rgba(0,0,0,.2) inset;outline:0 none}
+    </style> 
+</head>
+<body>    
+    <div id='title'>登录鼎梦通行证<div class='titlebtn' onclick='window.RegisterJavascriptInterface.changePage("DmLogin.htm");' style="left:5px;width:80px;">手动登录</div><div class='titlebtn' id='regist' style="right:5px;width:80px;" onclick='window.RegisterJavascriptInterface.autoLogin();'>快速注册</div></div>
+            <div class="login_form" id="weblign" style="width:100%">
+                <div class="form_item form_item_error" style="display:none;" id="err_m"></div>            
+                &nbsp;&nbsp;您登录过以下账号，可直接点击登录        
+                <div id="ulistbox" style="margin:10px 0 15px 10px;width:100%;">
+                </div>
+                <div class="form_item" style="float:right; margin-right:15px; position: relative; margin-bottom:20px;">                
+            </div> 
+        </div>        
+</body>
+<script type="text/javascript">
+    var LoadJson = function (json) {
+        LoginJson = eval("(" + json + ")");
+        var str = new Array();
+        for (var i = 0; i < LoginJson.idlist.length; i++) {
+            str.push("<div class='btn_login' onclick='return doLogin(" + i + ");'>" + LoginJson.idlist[i].uid + "</div>");
+        }
+        $("#ulistbox").html(str.join(""));
+    }
+
+    var doLogin = function (index) {
+        window.RegisterJavascriptInterface.loginWithoutMD5(LoginJson.idlist[index].uid, LoginJson.idlist[index].pwd);      
+    }
+
+    //只允许输入数字、字母
+    function keyDigitWithOutDotKeyCheck(evt) {
+        evt = (evt) ? evt : ((window.event) ? window.event : "") //兼容IE和Firefox获得keyBoardEvent对象
+        var key = evt.keyCode ? evt.keyCode : evt.which; //兼容IE和Firefox获得keyBoardEvent对象的键值
+        if ((key < 48 || (key > 57 && key < 65) || (key > 90 && key < 91) || key > 122) && key != 8) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+</script>
+</html>

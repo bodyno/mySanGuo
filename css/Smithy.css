@@ -1,0 +1,64 @@
+﻿/*铁匠铺强化窗口左边栏*/
+#SmithyDialogLeft
+{
+	width:190px;
+	height:206px;
+	background:url(../res/dialog/UI_Iron_a.png) no-repeat;
+	position:absolute;
+	z-index:11;
+	top:48px;
+	left:16px;
+}
+
+.SmithyDialogRight
+{
+	width:192px;
+	height:234px;	
+	position:absolute;
+	z-index:11;
+	top:48px;
+	left:209px;
+}
+
+#SmithyDialogRightE
+{	
+	background:url(../res/dialog/UI_Iron_b.png) no-repeat;	
+}
+
+#SmithyDialogRightW
+{	
+	background:url(../res/dialog/UI_Iron_c.png) no-repeat;	
+}
+
+
+.SkillSelect
+{
+	background:url(../res/dialog/SkillSelected.png) no-repeat;
+	width:44px;
+	height:44px;
+	position:absolute;
+	z-index:18;
+}
+
+/*合成窗口英雄信息*/
+#SynthesisDataDialog
+{
+	width:298px;
+	height:235px;
+	background:url(../res/dialog/UI_Iron_e.png) no-repeat;
+	position:absolute;
+	z-index:13;
+	top:48px;
+	left:129px;
+}
+
+.GoodsTitle
+{
+	width:130px;
+	height:23px;
+	left:30px;
+	top:14px;
+	position:absolute;
+	z-index:13;	
+	text-align:center;
+}

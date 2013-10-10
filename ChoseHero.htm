@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>选择英雄</title>
+    <link href="css/Choice.css" rel="Stylesheet" type="text/css" />
+    <link href="css/public.css" rel="Stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+    <script type="text/javascript" src="js/Generals.js"></script>
+    <script type="text/javascript" src="js/public.js"></script>
+    <script type="text/javascript">
+        //屏幕尺寸
+        var Systemdata = { "width": 569, "height": 320 };
+        var sysnickname = "欠日王八";
+        var HeroID = "";
+        var toplist = new Array(50, 30);
+    </script>   
+</head>
+<body>    
+    <div id="main">
+        <div id="div1">
+            <div id="Next" onclick="return ClickNext();"></div>
+            <div id="inputDiv">
+                <input type="text" id="inputText" maxlength="5" />
+                <div id='RandomBnt' onclick='javascript:window.GameMainClass.sendRequestJson(1101, sysnickname, "GetNickName");'></div>
+                <ul id="wrapper1">		            
+	            </ul>   
+                <div id="error" class='error'></div>
+            </div>            
+        </div>  
+        <div id="div2" style="display:none;">
+            <div id="title"></div>
+            <div id="Marquee">
+                <div id="a" class="a1" onclick="return choseHero(this.id,1,2002);"></div>
+                <div id="b" class="b1" onclick="return choseHero(this.id,1,2005);"></div>
+                <div id="c" class="c1" onclick="return choseHero(this.id,1,2003);"></div>
+                <div id="d" class="d1" onclick="return choseHero(this.id,2,2004);"></div>
+                <div id="e" class="e1" onclick="return choseHero(this.id,2,2001);"></div>
+                <div id="f" class="f1" onclick="return choseHero(this.id,2,2000);"></div>
+            </div>
+            <div id="StartGame" onclick="return startgame();"></div>            
+        </div>        
+    </div>    
+</body>
+<script type="text/javascript"> 
+    var olddiv = "";
+    var nickname = "";
+    var handindex = 0;    
+    function choseHero(obj, type, heroid) {
+        if (olddiv == obj)
+            return;
+                    
+        $("#" + obj).attr("class", obj + "2");
+        if (olddiv != "") {            
+            $("#" + olddiv).attr("class", olddiv + "1");
+        }
+        olddiv = obj;
+        $("#DialogBox").remove();
+
+        var str = new Array();
+        var i = 0;
+
+        for (; i < GeneralsJson.length; i++) {
+            if (GeneralsJson[i].HeroId == heroid) {
+                HeroID = GeneralsJson[i].HeroId;
+                break;
+            }
+        }
+
+        var job = "";
+        switch (GeneralsJson[i].Job) {
+            case 1:
+                job = "战士";
+                break;
+            case 2:
+                job = "射手";
+                break;
+            case 3:
+                job = "谋士";
+                break;
+        }
+        if (type == 1) {
+            str.push("<div class='DialogLeft' style='top:70px;left:15px;'><div class='divname'>" + GeneralsJson[i].Name + "</div><div class='divtype'>" + job + "</div><br /><div class='detail'>" + GeneralsJson[i].Detail + "</div></div>");
+        }
+        else {
+            str.push("<div class='DialogLeft Left' style='top:75px;left:-170px;'><div class='Left' style='right:65px;position:absolute;'><div class='divname'>" + GeneralsJson[i].Name + "</div><div class='divtype'>" + job + "</div><br /><div class='detail'>" + GeneralsJson[i].Detail + "</div></div></div>");
+        }
+
+        var divnoe = document.createElement("div");
+        divnoe.id = "DialogBox";
+        divnoe.innerHTML = str.join("");
+        document.getElementById(obj).appendChild(divnoe);
+    }
+
+    function startgame() {
+        if (HeroID != "") {
+            window.GameMainClass.register(HeroID);
+        }
+    }
+
+    function ClickNext() {
+        if ($("#inputText").val() == "") {
+            $("#error").html("昵称不能为空!");
+        }
+        else {
+            $("#error").html("");
+            nickname = $("#inputText").val().replace(" ", "");
+            //window.GameMainClass.checkNickname(nickname, Number(handindex + 1));
+            registerRes(1, "");
+        }
+    }
+
+    function registerRes(res, info) {
+        if (res == 1) {
+            $("#div1").css("display", "none");
+            $("#div2").css("display", "");
+            choseHero("a", 1, 2002);
+        }
+        else
+            $("#error").html(info);
+    }
+
+    function registerRes2(res, info) {
+        if (res == 1) {
+        }
+        else
+            showTextMess(info, res);
+    }
+    
+
+    //加城城池界面
+    $(document).ready(function () {
+        $("#main").css("width", Systemdata.width);
+        switch (Systemdata.width) {
+            case 480:
+                $("#main").css({ "background-position": "-45px 0" });
+                break;
+            case 533:
+                $("#main").css({ "background-position": "-18px 0" });
+                break;
+            case 569:
+                $("#main").css({ "background-position": "0 0" });
+                break;
+        }
+        $("#inputDiv").css("left", (Systemdata.width - 360) / 2);
+        $("#Next").css("left", (Systemdata.width - 109) / 2);
+        $("#Marquee").css("left", (Systemdata.width - 459) / 2);
+        $("#StartGame").css("left", (Systemdata.width - 109) / 2);
+        $("#title").css("left", (Systemdata.width - 404) / 2);
+        $("#inputText").val(sysnickname);
+        loadHand(0);
+    });
+
+    function loadHand(index) {
+        var str = new Array();
+        for (var i = 0; i < 6; i++) {
+            str.push('<li id="Hand' + i + '" onclick="loadHand(' + i + ');"><a href="#" class="bwWrapper" style="position:relative;">');
+            str.push("<img style='position:absolute;z-index:1;top:3px;left:3px;' src='res/city/UserImg/" + (i + 1) + "s.png' />");
+            if (i == index) {
+                str.push("<img style='position:absolute;z-index:1;top:3px;left:3px;' src='res/city/UserImg/" + (i + 1) + ".png' />");
+                str.push("<img style='position:absolute;z-index:2' src='res/city/MainATop.png' />");
+                str.push("<img style='position:absolute;z-index:3;top:-2px;left:-2px;' src='res/Choice/Boxbg.png' />");
+            }
+            else {
+                str.push("<img style='position:absolute;z-index:1;top:3px;left:3px;' src='res/city/UserImg/" + (i + 1) + "s.png' />");
+                str.push("<img style='position:absolute;z-index:2' src='res/city/MainATop1.png' />");
+            }
+            
+            str.push('</a></div></li>');
+        }
+
+        $("#wrapper1").html(str.join(""));
+        handindex = index;
+    }
+
+    function GetNickName(obj) {
+        //window.GameMainClass.sendRequestJson(1101, '', "GetNickName");
+        $("#inputText").val(obj);
+        sysnickname = obj;
+    }
+
+</script>
+</html>

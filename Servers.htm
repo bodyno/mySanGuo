@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>服务器选择</title>    
+    <link href="css/public.css" rel="Stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+    <script type="text/javascript" src="js/iscroll-lite.js"></script>    
+    <script type="text/javascript" src="js/public.js"></script>
+    <style type="text/css">
+        body{-webkit-text-shadow:-1px -1px 0 #000,1px -1px #000,1px 1px #000,-1px 1px #000;-moz-text-shadow:-1px -1px 0 #000,1px -1px #000,1px 1px #000,-1px 1px #000;text-shadow:-1px -1px 0 #000,1px -1px #000,1px 1px #000,-1px 1px #000;filter:glow(color=black,strength=1); margin:0 0;}
+        #serverbg{position:absolute; z-index:1; background:url(res/servers/Area_Dbg.png) no-repeat;width:480px;height:318px;top:1px;font-size:15px;color:White; font-weight:600; font-family:黑体;}        
+        .severArray1{ position:absolute; z-index:1; background:url(res/servers/Area_bg1.png) no-repeat;width:180px;height:34px;padding-left:35px; line-height:36px;}
+        .severArray2{ position:absolute; z-index:1; background:url(res/servers/Area_bg2.png) no-repeat;width:180px;height:34px;padding-left:35px; line-height:36px;}
+        
+        #pubwrapper {
+	        position:absolute;
+	        z-index:1;
+	        top:129px;
+	        left:49px;	
+	        overflow:auto;
+	        width:378px;
+	        height:134px;
+        }
+
+        #pubscroller {
+	        position:absolute; 
+	        z-index:1;
+	        -webkit-touch-callout:none;
+	        -webkit-tap-highlight-color:rgba(0,0,0,0);	
+	        padding:0;
+	        width:378px;	        
+        }
+
+        #pubscroller ul {
+	        list-style:none;
+	        padding:0;
+	        margin:0;
+	        width:100%;
+	        text-align:left;
+	        width:378px;	        
+        }
+
+        #pubscroller li 
+        {
+            width:378px;	        
+        } 
+    </style>
+    <script type="text/javascript">
+        //屏幕尺寸
+        var Systemdata = { "width": 569, "height": 320 };
+        //类型，0为新开，1为火爆，2为准备
+        var serverJson = {
+            "serverlist": [
+                { "sid": 1, "sname": "1区桃园结义", "type": 1 }, { "sid": 2, "sname": "2区五谷丰登", "type": 0 }, { "sid": 3, "sname": "3区南蛮入侵", "type": 1 }, { "sid": 4, "sname": "4区借刀杀人", "type": 2 }
+            ], "latelyServer": [{ "sid": 1, "sname": "1区桃园结义", "type": 1 }, { "sid": 3, "sname": "3区南蛮入侵", "type": 0}]
+        };
+        var myScroll;
+        function loadedpubwrapper() {
+            myScroll = new iScroll('pubwrapper', { 'hScrollbar': false, 'vScrollbar': false });
+        }       
+    </script>   
+</head>
+<body> 
+    <div id='div1' style='background:url(res/login/nBg.png) no-repeat; position:absolute;height:320px;'>
+        <div id='serverbg'>
+             <div class="ButtonSmall" style="width:39px;height:38px;background:url(res/dialog/Shop_close.png) no-repeat;top:8px;left:438px;" onclick="window.GameMainClass.closeSerList();"></div>         
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    //加城城池界面
+    $(document).ready(function () {
+        $("#div1").css("width", Systemdata.width);
+        $("#serverbg").css("left", (Systemdata.width - 480) / 2);
+        switch (Systemdata.width) {
+            case 480:
+                $("#div1").css({ "background-position": "-45px 0" });
+                break;
+            case 533:
+                $("#div1").css({ "background-position": "-18px 0" });
+                break;
+            case 569:
+                $("#div1").css({ "background-position": "0 0" });
+                break;
+        }
+
+        var str = new Array();
+        //最近登录过的区        
+        var left = 49, top = 73;
+        var temp = "", color = "";
+        if (serverJson.latelyServer.length > 0) {
+            for (var i = 0; i < serverJson.latelyServer.length; i++) {
+                switch (serverJson.latelyServer[i].type) {
+                    case 0:
+                        temp = "新开";
+                        color = "#00ff00";
+                        break;
+                    case 1:
+                        temp = "火爆";
+                        color = "Red";
+                        break;
+                    case 2:
+                        temp = "准备";
+                        color = "orange";
+                        break;
+                }
+                str.push("<div class='severArray1' style='top:" + top + "px;left:" + left + "px;'  ontouchmove='getmovingposx()' ontouchstart='getposx()' ontouchend='if (Math.abs(lastPosX - beforePosX) < 5) window.GameMainClass.chooseSer(" + serverJson.latelyServer[i].sid + ");'>" + serverJson.latelyServer[i].sname + "<font style='color:" + color + ";'>(" + temp + ")</font></div>");
+                left += 198;
+                if (i == 1)
+                    break;
+            }
+        }
+
+        left = 0; top = 0;
+        var len = parseInt(serverJson.serverlist.length / 2);
+        if (serverJson.serverlist.length % 2 != 0)
+            len += 1;
+
+        str.push("<div id='pubwrapper'><div id='pubscroller' style='height:" + (len * 34 + 16 * (len - 1)) + "px;'>");
+        str.push('<ul style="height:' + (len * 34 + 16 * (len - 1)) + 'px;"><li>');
+        var left = 0;
+        for (var i = 0; i < serverJson.serverlist.length; i++) {
+            switch (serverJson.serverlist[i].type) {
+                case 0:
+                    temp = "新开";
+                    color = "#00ff00";
+                    break;
+                case 1:
+                    temp = "火爆";
+                    color = "#ff0000";
+                    break;
+                case 2:
+                    temp = "准备";
+                    color = "orange";
+                    break;
+            }
+            str.push("<div class='severArray2' style='top:" + top + "px;left:" + left + "px;'  ontouchmove='getmovingposx()' ontouchstart='getposx()' ontouchend='if (Math.abs(lastPosX - beforePosX) < 5) window.GameMainClass.chooseSer(" + serverJson.serverlist[i].sid + ");'>" + serverJson.serverlist[i].sname + "<font style='color:" + color + ";'>(" + temp + ")</font></div>");
+            if ((i + 1) % 2 == 0) {
+                left = 0;
+                top += 50;
+            }
+            else
+                left += 198;
+        }
+
+        var divnode = document.createElement("div");
+        divnode.innerHTML = str.join("");
+        document.getElementById("serverbg").appendChild(divnode);
+
+        myScroll = new iScroll('pubwrapper', { 'hScrollbar': false, 'vScrollbar': false });
+        window.addEventListener('DOMContentLoaded', loadedpubwrapper, false);
+    });   
+</script>
+</html>

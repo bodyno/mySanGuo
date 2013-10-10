@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>战斗页</title>
+    <script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+    <link href="css/fighting.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/game.js"></script>
+    <script type="text/javascript">
+        //资源json: backimage-战斗背景，
+        var ResourcesJson = {
+            "backimage": "1.png",
+            "soldier":
+            [
+               { "id": "01", "type": 1000, "direction": "Left", "top": 140, "left": 145 },
+               { "id": "02", "type": 1001, "direction": "Right", "top": 140, "left": 240 },
+               { "id": "03", "type": 1000, "direction": "Left", "top": 200, "left": 145 },
+               { "id": "04", "type": 1001, "direction": "Right", "top": 200, "left": 240 }
+            ]
+        };
+        var Fightingjson = {
+            "Victory": "02,04", "Victorytype": "1001,1001", "Failure": "01,03",
+            "data":
+            [
+                { "attacker": "01", "attackertype": 1000, "defendingtype": "1001", "defending": "02", "lossHP": "300" },
+                { "attacker": "03", "attackertype": 1000, "defendingtype": "1001", "defending": "02", "lossHP": "300" },
+                { "attacker": "02", "attackertype": 1001, "defendingtype": "1000,1000", "defending": "01,03", "lossHP": "250,250" },
+                { "attacker": "04", "attackertype": 1001, "defendingtype": "1000,1000", "defending": "01,03", "lossHP": "250,250" },
+                { "attacker": "01", "attackertype": 1000, "defendingtype": "1001", "defending": "02", "lossHP": "300" },
+                { "attacker": "03", "attackertype": 1000, "defendingtype": "1001", "defending": "02", "lossHP": "300" },
+                { "attacker": "04", "attackertype": 1001, "defendingtype": "1000,1000", "defending": "01,03", "lossHP": "250,250" },
+                { "attacker": "01", "attackertype": 1000, "defendingtype": "1001", "defending": "04", "lossHP": "300" },
+                { "attacker": "03", "attackertype": 1000, "defendingtype": "1001", "defending": "04", "lossHP": "300" },
+                { "attacker": "04", "attackertype": 1001, "defendingtype": "1000,1000", "defending": "01,03", "lossHP": "250,250" }
+            ]
+        };
+    </script>
+</head>
+<body onload="return pageload();">
+    <div id="main">
+    </div>
+</body>
+<script type="text/javascript">
+    function pageload() {
+        gameclass.loadGame(ResourcesJson);
+        gameclass.startGame(Fightingjson);      
+    }   
+</script>
+</html>

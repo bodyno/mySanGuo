@@ -1,0 +1,176 @@
+﻿#Training
+{
+	width:298px;
+	height:235px;
+	background:url(../res/dialog/UI_School.png) no-repeat;
+	position:absolute;
+	z-index:11;
+	top:48px;
+	left:129px;
+}
+
+
+/****************校场位状态显示******************************************/
+.Training01
+{
+	width:82px;
+	height:72px;
+	background:url(../res/dialog/Training01.png) no-repeat;
+	position:absolute;
+	z-index:14;
+	text-align:center;
+}
+
+.Training02
+{
+	width:82px;
+	height:72px;
+	background:url(../res/dialog/Training02.png) no-repeat;
+	position:absolute;
+	z-index:14;
+}
+
+.TrainingState
+{
+	width:67px;
+	height:19px;
+	background:url(../res/dialog/SeatTxt.png) no-repeat;
+	position:absolute;
+	z-index:20;
+	top:52px;
+	left:8px;
+}
+
+
+.HeroLVBig
+{
+	width:77px;
+	position:absolute;
+	z-index:18;	
+	font-size:12px;
+	font-weight:800;	
+	font-family:微软雅黑;
+	vertical-align:top;
+	text-align:center;
+	bottom:78px;
+}
+
+.HasTraining
+{
+	background:url(../res/dialog/Label_Training.png) no-repeat;	
+}
+
+.HasLevy
+{
+	background:url(../res/dialog/Label_Collection.png) no-repeat;	
+}
+
+.HasWork
+{
+	background:url(../res/dialog/Label_Work.png) no-repeat;	
+}
+
+.NeedMoney
+{
+	width:88px;
+	height:17px;
+	position:absolute;
+	z-index:18;
+	top:215px;
+	left:107px;
+	background:url(../res/dialog/SeatTxts.png) no-repeat;	
+}
+
+#HeroTraningDia
+{
+	width:228px;
+	height:284px;
+	position:absolute;
+	z-index:18;
+	left:108px;
+	top:9px;
+	background:url(../res/dialog/UI_Time.png) no-repeat;	
+}
+
+.SelectedImg
+{
+	width:26px;
+	height:21px;
+	position:absolute;
+	z-index:23;
+	background:url(../res/dialog/TimeD.png) no-repeat;
+}
+
+.SelectedItem
+{
+	width:26px;
+	height:21px;
+	position:absolute;
+	z-index:1;
+}
+
+#BeginTraining
+{
+	width:87px;
+	height:28px;
+	position:absolute;
+	z-index:3;
+	background:url(../res/dialog/ButtonTime.png) no-repeat;
+	top:228px;
+	left:67px;
+}
+
+#CultureDialog
+{
+	width:298px;
+	height:235px;
+	background:url(../res/dialog/UI_Training.png) no-repeat;
+	position:absolute;
+	z-index:11;
+	top:48px;
+	left:129px;
+}
+
+#cultureInfoDialog
+{
+	background:url(../res/dialog/UI_TraBg.png) no-repeat;
+	width:352px;
+	height:267px;
+	position:absolute;
+	z-index:21;
+	left:46px;
+	top:18px;
+}
+
+.cultureTypeDia
+{
+	width:256px;
+	height:244px;
+	position:absolute;
+	z-index:1;
+	left:75px;
+	top:2px;
+	background:url(../res/dialog/UI_TraBga.png) no-repeat;	
+}
+
+#UserBookDg
+{
+    background:url(../res/dialog/xTips_Bg.png) no-repeat;
+	width:278px;
+	height:208px;
+	position:absolute;
+	z-index:58;
+	left:83px;
+	top:48px;
+}
+
+#UseBookBg
+{
+    background:url(../res/dialog/UseExp_Bg.png) no-repeat;
+	width:376px;
+	height:192px;
+	position:absolute;
+	z-index:1;
+	left:11px;
+	top:4px;  
+}

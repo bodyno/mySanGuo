@@ -1,0 +1,206 @@
+﻿#GrandCouncilMain
+{
+	width:412px;
+	height:235px;
+	background:url(../res/dialog/UI_AcademyBg.png) no-repeat;
+	position:absolute;
+	z-index:11;
+	top:48px;
+	left:16px;
+}
+
+.GrandCouncilArray
+{
+	width:99px;
+	height:198px;
+	background:url(../res/dialog/UI_Academy1.png) no-repeat;
+	position:absolute;
+	z-index:1;
+	top:4px;
+}
+
+.GrandCouncilArrayOff
+{
+	width:99px;
+	height:198px;
+	background:url(../res/dialog/UI_Academy2.png) no-repeat;
+	position:absolute;
+	z-index:1;
+	top:4px;
+}
+
+.TitleBox
+{
+	width:95px;
+	position:absolute;
+	z-index:1px;
+	height:20px;
+	top:6px;
+	left:2px;
+	text-align:center;
+	font-size:13px;
+	font-weight:900;
+	line-height:20px;
+	font-family:微软雅黑;
+}
+
+.DetialBox
+{
+	width:94px;
+	position:absolute;
+	z-index:1px;
+	height:49px;
+	top:98px;
+	left:3px;
+	color:#5D2F19;
+	text-align:left;
+	font-size:12px;
+	font-weight:600;
+	line-height:14px;
+	font-family:微软雅黑;
+	overflow:hidden;	
+}
+
+.NeedGold
+{
+	width:67px;
+	height:17px;
+	background:url(../res/dialog/UI_Aval1.png) no-repeat;
+	position:absolute;
+	z-index:1;
+	top:179px;
+	left:16px;
+}
+
+.HasBuyed
+{
+	width:85px;
+	height:63px;
+	background:url(../res/dialog/Label_Sold.png) no-repeat;
+	position:absolute;
+	z-index:10;
+	top:130px;
+	left:7px;
+}
+
+.OpenNewDetail
+{
+	width:67px;
+	height:35px;
+	background:url(../res/dialog/UI_Aval2.png) no-repeat;
+	position:absolute;
+	z-index:10;
+	top:85px;
+	left:19px;
+}
+
+#ZXDataDialog
+{
+	width:298px;
+	height:235px;
+	background:url(../res/dialog/UI_Formation.png) no-repeat;
+	position:absolute;
+	z-index:13;
+	top:48px;
+	left:129px;
+}
+
+#FormationTitle
+{
+	width:66px;
+	height:25px;
+	background:url(../res/dialog/Form_txt.png) no-repeat;
+	position:absolute;
+	z-index:11;
+	top:9px;
+	left:20px;	
+}
+
+#FormationDetialBox
+{
+	width:190px;
+	position:absolute;
+	z-index:1px;
+	height:46px;
+	top:38px;
+	left:8px;
+	color:#805233;
+	text-align:left;
+	font-size:12px;
+	font-weight:900;
+	line-height:14px;
+	font-family:微软雅黑;
+	overflow:hidden;
+	padding-left:5px;	
+}
+
+#FormationImageSmall
+{
+	width:74px;
+	position:absolute;
+	z-index:1px;
+	height:74px;
+	top:9px;
+	left:213px;	
+}
+
+.FormationRemarkBox
+{
+	width:190px;
+	position:absolute;
+	z-index:1px;
+	height:20px;
+	color:#5D2F19;
+	font-size:12px;
+	font-weight:800;	
+	font-family:微软雅黑;
+	overflow:hidden;
+}
+
+#ConditionImage
+{
+	width:36px;
+	height:35px;
+	background:url(../res/dialog/UI_FormTxt.png) no-repeat;
+	position:absolute;
+	z-index:13;
+	top:193px;
+	left:9px;	
+}
+
+#ConditionDataImage
+{
+	width:170px;
+	height:36px;
+	background:url(../res/dialog/UI_FormationG.png) no-repeat;
+	position:absolute;
+	z-index:13;
+	top:192px;
+	left:48px;	
+}
+
+#MaxImage
+{
+	width:85px;
+	height:63px;
+	background:url(../res/dialog/Label_MAX.png) no-repeat;
+	position:absolute;
+	z-index:115;
+	top:168px;
+	left:209px;	
+}
+
+.ConditionDataFont
+{
+	width:51px;
+	position:absolute;
+	z-index:100px;
+	height:25px;	
+	color:#805233;
+	text-align:center;
+	font-size:14px;
+	font-weight:700;
+	line-height:28px;
+	font-family:微软雅黑;	
+	top:11px;
+}

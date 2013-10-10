@@ -1,0 +1,323 @@
+﻿body 
+{
+	padding:0px;margin:0px;
+}
+
+*{-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
+
+img {
+	border:none;
+}
+
+
+#main
+{
+	width:480;
+	height:320px;
+	background:url(../res/login/nBg.jpg) no-repeat;
+	overflow:hidden;
+}
+
+#Marquee
+{
+	width:459px;
+	height:77px;
+	position:absolute;
+	z-index:2;
+	top:98px;
+	left:59px;
+	background:url(../res/Choice/Marquee.png) no-repeat;
+}
+
+#title
+{
+	width:404px;
+	height:24px;
+	position:absolute;
+	z-index:2;
+	top:4px;
+	left:2px;
+	background:url(../res/Choice/txt1.png) no-repeat;
+	}
+
+.a1
+{
+	width:67px;
+	height:98px;
+	background:url(../res/Choice/a1.png) no-repeat;	
+	z-index:2;
+	left:0px;
+	top:-33px;
+	position:relative;
+	display:block;
+}
+
+.b1
+{
+	width:72px;
+	height:103px;
+	background:url(../res/Choice/b1.png) no-repeat;	
+	position:absolute;
+	z-index:2;
+	left:73px;
+	top:-48px;
+}
+
+.c1
+{
+	width:73px;
+	height:101px;
+	background:url(../res/Choice/c1.png) no-repeat;	
+	position:absolute;
+	z-index:2;
+	left:145px;
+	top:-61px;
+}
+
+.d1
+{
+	width:67px;
+	height:106px;
+	background:url(../res/Choice/d1.png) no-repeat;	
+	position:absolute;
+	z-index:2;
+	left:240px;
+	top:-66px;
+}
+
+.e1
+{
+	width:63px;
+	height:103px;
+	background:url(../res/Choice/e1.png) no-repeat;	
+	position:absolute;
+	z-index:2;
+	left:321px;
+	top:-48px;
+}
+
+.f1
+{
+	width:66px;
+	height:100px;
+	background:url(../res/Choice/f1.png) no-repeat;	
+	position:absolute;
+	z-index:3;
+	left:398px;
+	top:-35px;
+}
+
+
+.a2
+{
+	width:67px;
+	height:98px;
+	background:url(../res/Choice/a2.png) no-repeat;	
+	position:absolute;
+	z-index:3;
+	left:0px;
+	top:-33px;
+}
+
+.b2
+{
+	width:72px;
+	height:103px;
+	background:url(../res/Choice/b2.png) no-repeat;	
+	position:absolute;
+	z-index:3;
+	left:73px;
+	top:-48px;
+}
+
+.c2
+{
+	width:73px;
+	height:101px;
+	background:url(../res/Choice/c2.png) no-repeat;	
+	position:absolute;
+	z-index:3;
+	left:145px;
+	top:-61px;
+}
+
+.d2
+{
+	width:67px;
+	height:106px;
+	background:url(../res/Choice/d2.png) no-repeat;	
+	position:absolute;
+	z-index:3;
+	left:240px;
+	top:-66px;
+}
+
+.e2
+{
+	width:63px;
+	height:103px;
+	background:url(../res/Choice/e2.png) no-repeat;	
+	position:absolute;
+	z-index:3;
+	left:321px;
+	top:-48px;
+}
+
+.f2
+{
+	width:66px;
+	height:100px;
+	background:url(../res/Choice/f2.png) no-repeat;	
+	position:absolute;
+	z-index:3;
+	left:398px;
+	top:-35px;
+}
+	
+	
+#StartGame
+{
+	width:109px;
+	height:47px;
+	position:absolute;
+	z-index:1;
+	background:url(../res/Choice/Start_game.png);
+	left:185px;
+	top:260px;
+}
+
+.DialogLeft
+{
+	width:179px;
+	padding:20px 35px 0 15px;
+	height:90px;
+	background:	url(../res/Choice/LeftBox.png) no-repeat;
+	position:absolute;
+	z-index:3;
+	color:#666666;
+	font-size:14px;
+	line-height:17px;
+	font-family:微软雅黑;
+	font-weight:800;	
+}
+
+.Left{-moz-transform:scaleX(-1); -webkit-transform:scaleX(-1); -o-transform:scaleX(-1); transform:scaleX(-1); /*IE*/filter:FlipH;	transform: rotateY(180deg); }
+
+ .divname
+{		
+	color:#0066FF;
+	font-size:14px;
+	position:absolute;
+	text-shadow:Green 1px 0 0; 
+}
+
+ .divtype
+{	
+	color:#666666;
+	font-weight:800;	
+	font-size:14px;	
+	position:absolute;	
+	left:60px;	
+}
+
+ .detail
+{
+	width:160px;
+	font-size:12px;
+}
+
+
+#Next
+{
+	width:109px;
+	height:47px;
+	position:absolute;
+	z-index:1;
+	background:url(../res/Choice/Next_game.png);
+	left:185px;
+	top:260px;
+}
+
+#inputDiv
+{
+	width:360px;
+	height:246px;
+	position:absolute;
+	z-index:1;
+	background:url(../res/Choice/NameBox.png);
+	left:60px;
+	top:7px;
+}
+
+#inputText
+{	
+	font-size:18px;
+	position:absolute;
+	z-index:4;
+	top:55px;
+	left:60px;
+	border:0 solid;
+	width:201px;
+	font-family:微软雅黑;
+	font-weight:900;	
+	outline:none;
+	line-height:25px;
+	text-align:center;
+	color:#634015;
+}
+
+.error
+{
+	font-size:14px;
+	color:#FF0000;
+	position:absolute;
+	z-index:4;
+	top:90px;
+	left:56px;
+	font-family:微软雅黑;
+	text-shadow:White 1px 0 0,White 1px 0 0,White 1px 0 0,White 1px 0 0;
+}
+
+#RandomBnt
+{
+	width:47px;
+	height:46px;
+	position:absolute;
+	z-index:10;
+	background:url(../res/Choice/Dice.png);
+	left:260px;
+	top:47px;
+}
+
+.bwWrapper {
+	position:relative;
+	display:block;
+	width:100%;
+}
+
+#wrapper1 {
+	list-style:none;
+	margin:150px 30px;
+	float:left;
+	padding:0;
+	height:50px;
+	width:100%;
+}
+
+#wrapper1 li {
+	float:left;
+	margin: 0px 2px 0px 0;	
+	width:46px;
+	height:46px;
+	display:block;	
+}
+
+#wrapper1 li.click{
+	float:left;
+	margin: 0px 2px 0px 0;
+	background:url(../res/Choice/Boxbg.png) no-repeat;
+	width:50px;
+	height:50px;
+	padding:4px 0px 0px 4px;
+	position:relative;
+}
